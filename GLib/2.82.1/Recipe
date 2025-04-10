@@ -2,15 +2,15 @@
 # Recipe (MakeRecipe) for GLib by  Ozgur Ulukir, on Mon Dec 20 01:48:37 EET 2004
 compile_version=2.0
 url="https://download.gnome.org/sources/glib/2.82/glib-2.82.0.tar.xz"
-file_size=18752204
-file_md5=b390feef233022114950317f10c4fa97
+file_size=5549388
+file_md5=9f94b8b15bc22dbe6a2c8aafd6fb0293
 recipe_type=meson
 
 meson_variables=(
     -D selinux=disabled
     -D glib_debug=disabled
     -D tests=false
-#    -D introspection=disabled
+    #-D introspection=disabled
 )
 
 # NOTE: From time to time it may be required to build with
@@ -18,12 +18,12 @@ meson_variables=(
 # of GObject-Introspection and then finally recompile Glib with
 # introspection=enabled (or commented out).
 
-pre_build() {
-    rmdir ../subprojects/gvdb
-}
+#pre_build() {
+#    rmdir ../subprojects/gvdb
+#}
 
-pre_link() {
-    Quiet pushd $target/lib/pkgconfig
-    for i in *; do ln -s $i `echo $i | sed 's/-2.0//g'`; done
-    Quiet popd
-}
+#pre_link() {
+#    Quiet pushd $target/lib/pkgconfig
+#    for i in *; do ln -s $i `echo $i | sed 's/-2.0//g'`; done
+#    Quiet popd
+#}

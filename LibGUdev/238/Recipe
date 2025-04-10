@@ -1,8 +1,10 @@
+# Recipe fixed url for version 238 by TheK0tYaRa, on Tue 08 Apr 2025 21:57 +2 UTC
 # Recipe for version 238 by Nuc1eoN, on Thu 31 Oct 2024 01:03:54 AM GMT
 # Recipe (MakeRecipe) for LibGUdev by Nuc!eoN, on Thu 12 Nov 2020 04:13:02 PM CET
 compile_version=017-GIT
-url="https://download.gnome.org/sources/libgudev/238/libgudev-238.tar.xz"
-file_size=31249
-file_md5=afdad8dd4ecc55047ad363889671e67a
+url="https://gitlab.gnome.org/GNOME/libgudev/-/archive/238/libgudev-238.tar.gz"
+#"https://download.gnome.org/sources/libgudev/238/libgudev-238.tar.xz"
+file_size=35056
+file_md5=c85736d109526690bf6e2845616f6809
 dir='libgudev-238'
 recipe_type=meson

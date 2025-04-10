@@ -9,4 +9,5 @@ meson_variables=(
 	-Db_lto=false
 	-Ddocumentation=false
 	-Dtests=false
+    -Dlibwacom=false # make it be set by use flag somehow
 )

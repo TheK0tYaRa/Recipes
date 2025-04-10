@@ -1,0 +1,9 @@
+# Recipe (MakeRecipe) for V3.12.0 by TheK0tYaRa < thek0tyara.alod123@gmail.com >, on Tue 08 Apr 2025 03:55:42 PM EEST
+# Recipe for version v3.12.0 by TheK0tYaRa < thek0tyara.alod123@gmail.com >, on Tue 08 Apr 2025 03:55:42 PM EEST
+compile_version=017-GIT
+url="https://github.com/NetworkConfiguration/openresolv/archive/refs/tags/v3.12.0.tar.gz"
+file="openresolv-3.12.0.tar.gz"
+file_size=23361
+file_md5=7090d3a8a755e24625980004d8359dcb
+dir='openresolv-3.12.0'
+recipe_type=configure

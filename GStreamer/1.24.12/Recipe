@@ -1,0 +1,6 @@
+# Recipe for version 1.24.12 by TheK0tYaRa < thek0tyara.alod123@gmail.com >, on Tue 08 Apr 2025 05:50:04 PM EEST
+compile_version=017-GIT
+url="https://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.24.12.tar.xz"
+file_size=1873544
+file_md5=8bfc0b9b4e2467170a66e256d4846f9c
+recipe_type=meson

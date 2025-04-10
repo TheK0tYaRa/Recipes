@@ -1,0 +1,11 @@
+# Recipe for version 0.18.2 by TheK0tYaRa < thek0tyara.alod123@gmail.com >, on Wed 09 Apr 2025 12:35:05 AM EEST
+# Recipe (MakeRecipe) for Wlroots by Nuc!eoN, on Thu 12 Nov 2020 10:45:49 PM CET
+compile_version=017-GIT
+url="https://gitlab.freedesktop.org/wlroots/wlroots/-/archive/0.18.2/wlroots-0.18.2.tar.bz2"
+file_size=469969
+file_md5=7bddeb636725b6807e4aafea68bf7965
+dir='wlroots-0.18.2'
+recipe_type=meson
+meson_variables=(
+   -Dc_link_args="-L/Programs/Pixman/Current/lib"
+)
