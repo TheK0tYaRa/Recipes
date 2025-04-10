@@ -1,0 +1,20 @@
+GCC 9.4.0
+Glibc 2.30
+#LibXML2 2.9.10
+NcursesW 6.2
+ZLib 1.2.11
+
+Doxygen >= 1.13.2
+git >= 2.48.1
+Graphviz >= 12.2.1
+libxml2 >= 2.13.6
+#psutil-7.0.0 (for tests)
+Pygments >= 2.19.1
+#PyYAML-6.0.2 (for tests)
+#rsync-3.4.1 (for tests)
+texlive >= 20240312 # (or install-tl-unx)
+Valgrind >= 3.24.0
+Zip >= 3.0
+#myst-parser (for building documentation)
+OCaml
+Z3 

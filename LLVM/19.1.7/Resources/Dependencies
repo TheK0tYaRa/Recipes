@@ -1,0 +1,5 @@
+GCC >= 9.4.0
+LibFFI >= 3.3
+NcursesW >= 6.2
+ZLib >= 1.2.8
+CMake >= 3.31.5

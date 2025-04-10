@@ -1,0 +1,17 @@
+# Recipe (MakeRecipe) for LLD by TheK0tYaRa < thek0tyara.alod123@gmail.com >, on Thu 10 Apr 2025 02:21:34 AM EEST
+# Recipe for version 19.1.7.src by TheK0tYaRa < thek0tyara.alod123@gmail.com >, on Thu 10 Apr 2025 02:21:34 AM EEST
+compile_version=017-GIT
+url="https://github.com/llvm/llvm-project/releases/download/llvmorg-19.1.7/lld-19.1.7.src.tar.xz"
+file_size=1645472
+file_md5=fb21e57090e30d49dac086be8a096333
+dir='lld-19.1.7.src'
+recipe_type=cmake
+cmake_options=(
+    -DCMAKE_BUILD_TYPE=Release
+    -DCMAKE_INSTALL_PREFIX=$goboIndex
+    -DLLVM_TARGETS_TO_BUILD="host;AMDGPU;BPF"
+
+    -DENABLE_MACHO=OFF
+    -DENABLE_MINGW=OFF
+    -DENABLE_WASM=OFF
+)

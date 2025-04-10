@@ -1,0 +1,29 @@
+# Recipe for version 3.31.5 by TheK0tYaRa < thek0tyara.alod123@gmail.com >, on Wed 09 Apr 2025 11:49:50 PM EEST
+compile_version=017-GIT
+url="https://cmake.org/files/v3.31/cmake-3.31.5.tar.gz"
+file_size=11706495
+file_md5=ea5e8d7208616b1609018db290a67419
+recipe_type=configure
+configure=bootstrap
+
+do_configuration() {
+  ./bootstrap  \
+    --prefix=$target \
+    --parallel=$(/usr/bin/getconf _NPROCESSORS_ONLN) \
+    --docdir=$target/doc/cmake-3.31.5 \
+    --system-libs \
+    --no-system-jsoncpp \
+    --no-system-cppdap \
+    --no-system-librhash \
+    --no-system-libarchive \
+    --no-system-bzip2 \
+    --no-system-curl \
+    -- -DCMake_TEST_Qt5=OFF
+}
+
+pre_install() {
+    if [ ! -z "$goboIndex" -a -d "$goboIndex" ]
+    then
+        GrepReplace "$goboIndex" "$target" cmake_install.cmake
+    fi
+}

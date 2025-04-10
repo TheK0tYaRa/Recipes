@@ -1,0 +1,120 @@
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -206,3 +206,18 @@
+-add_subdirectory(MachO)
+-add_subdirectory(MinGW)
+-add_subdirectory(wasm)
++option(ENABLE_MACHO "Enable compilation of MachO target" ON)
++option(ENABLE_MINGW "Enable compilation of MinGW target" ON)
++option(ENABLE_WASM "Enable compilation of wasm target" ON)
++
++if(ENABLE_MACHO)
++    add_subdirectory(MachO)
++    target_link_libraries(myExecutable PRIVATE lldMachO)  
++endif()
++
++if(ENABLE_MINGW)
++    add_subdirectory(MinGW)
++    target_link_libraries(myExecutable PRIVATE lldMinGW)
++endif()
++
++if(ENABLE_WASM)
++    add_subdirectory(wasm)
++    target_link_libraries(myExecutable PRIVATE lldWasm)
++endif()
+--- a/tools/lld/CMakeLists.txt
++++ b/tools/lld/CMakeLists.txt
+@@ -27,9 +27,18 @@
+-lld_target_link_libraries(lld
+-  PRIVATE
+-  lldCommon
+-  lldCOFF
+-  lldELF
+-  lldMachO
+-  lldMinGW
+-  lldWasm
+-  )
++lld_target_link_libraries(lld
++  PRIVATE
++  lldCommon
++  lldCOFF
++  lldELF
++  )
++
++if(ENABLE_MACHO)
++  lld_target_link_libraries(lld PRIVATE lldMachO)
++endif()
++
++if(ENABLE_MINGW)
++  lld_target_link_libraries(lld PRIVATE lldMinGW)
++endif()
++
++if(ENABLE_WASM)
++  lld_target_link_libraries(lld PRIVATE lldWasm)
++endif()
+--- a/unittests/AsLibAll/CMakeLists.txt
++++ b/unittests/AsLibAll/CMakeLists.txt
+@@ -9,9 +9,18 @@
+-target_link_libraries(LLDAsLibAllTests
+-  PRIVATE
+-  lldCommon
+-  lldCOFF
+-  lldELF
+-  lldMachO
+-  lldMinGW
+-  lldWasm
+-)
++target_link_libraries(LLDAsLibAllTests
++  PRIVATE
++  lldCommon
++  lldCOFF
++  lldELF
++)
++
++if(ENABLE_MACHO)
++  lld_target_link_libraries(LLDAsLibAllTests PRIVATE lldMachO)
++endif()
++
++if(ENABLE_MINGW)
++  lld_target_link_libraries(LLDAsLibAllTests PRIVATE lldMinGW)
++endif()
++
++if(ENABLE_WASM)
++  lld_target_link_libraries(LLDAsLibAllTests PRIVATE lldWasm)
++endif()
+--- a/include/lld/Common/Driver.h
++++ b/include/lld/Common/Driver.h
+@@ -61,7 +61,26 @@
+-#define LLD_ALL_DRIVERS                                                        \
+-  {                                                                            \
+-    {lld::WinLink, &lld::coff::link}, {lld::Gnu, &lld::elf::link},             \
+-        {lld::MinGW, &lld::mingw::link}, {lld::Darwin, &lld::macho::link}, {   \
+-      lld::Wasm, &lld::wasm::link                                              \
+-    }                                                                          \
+-  }
++#define LLD_BASE_DRIVERS {{lld::WinLink, &lld::coff::link}, {lld::Gnu, &lld::elf::link}}
++
++#if defined(ENABLE_MACHO) && defined(ENABLE_MINGW) && defined(ENABLE_WASM)
++  #define LLD_ALL_DRIVERS {{lld::WinLink, &lld::coff::link}, {lld::Gnu, &lld::elf::link}, \
++    {lld::MinGW, &lld::mingw::link}, {lld::Darwin, &lld::macho::link}, {lld::Wasm, &lld::wasm::link}}
++#elif defined(ENABLE_MACHO) && defined(ENABLE_MINGW)
++  #define LLD_ALL_DRIVERS {{lld::WinLink, &lld::coff::link}, {lld::Gnu, &lld::elf::link}, \
++    {lld::MinGW, &lld::mingw::link}, {lld::Darwin, &lld::macho::link}}
++#elif defined(ENABLE_MACHO) && defined(ENABLE_WASM)
++  #define LLD_ALL_DRIVERS {{lld::WinLink, &lld::coff::link}, {lld::Gnu, &lld::elf::link}, \
++    {lld::Darwin, &lld::macho::link}, {lld::Wasm, &lld::wasm::link}}
++#elif defined(ENABLE_MINGW) && defined(ENABLE_WASM)
++  #define LLD_ALL_DRIVERS {{lld::WinLink, &lld::coff::link}, {lld::Gnu, &lld::elf::link}, \
++    {lld::MinGW, &lld::mingw::link}, {lld::Wasm, &lld::wasm::link}}
++#elif defined(ENABLE_MACHO)
++  #define LLD_ALL_DRIVERS {{lld::WinLink, &lld::coff::link}, {lld::Gnu, &lld::elf::link}, \
++    {lld::Darwin, &lld::macho::link}}
++#elif defined(ENABLE_MINGW)
++  #define LLD_ALL_DRIVERS {{lld::WinLink, &lld::coff::link}, {lld::Gnu, &lld::elf::link}, \
++    {lld::MinGW, &lld::mingw::link}}
++#elif defined(ENABLE_WASM)
++  #define LLD_ALL_DRIVERS {{lld::WinLink, &lld::coff::link}, {lld::Gnu, &lld::elf::link}, \
++    {lld::Wasm, &lld::wasm::link}}
++#else
++  #define LLD_ALL_DRIVERS LLD_BASE_DRIVERS
++#endif

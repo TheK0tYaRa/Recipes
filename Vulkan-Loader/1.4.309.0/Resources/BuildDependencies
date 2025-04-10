@@ -1,0 +1,5 @@
+Vulkan-Headers = 1.4.309.0 #TODO bump
+Wayland
+XRandR
+LibX11
+Cmake >= 3.22.1

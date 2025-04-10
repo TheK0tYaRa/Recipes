@@ -1,0 +1,5 @@
+GCC 14.2.0
+Glibc 2.30
+LLVM 19.1.7
+ZLib 1.2.11
+Zstd 1.4.4

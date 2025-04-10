@@ -1,0 +1,8 @@
+# Recipe for version 1.4.309.0 by TheK0tYaRa < thek0tyara.alod123@gmail.com >, on Tue 08 Apr 2025 11:55:20 PM EEST
+compile_version=017-GIT
+url="https://github.com/KhronosGroup/Vulkan-Headers/archive/refs/tags/vulkan-sdk-1.4.309.0.tar.gz"
+file_size=2572985
+file_md5=719728c464acc5c10e86f17fd57f7598
+file="sdk-1.4.309.0.tar.gz"
+dir="Vulkan-Headers-vulkan-sdk-1.4.309.0"
+recipe_type=cmake
