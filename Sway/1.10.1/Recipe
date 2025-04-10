@@ -1,0 +1,14 @@
+# Recipe for version 1.10.1 by TheK0tYaRa < thek0tyara.alod123@gmail.com >, on Thu 10 Apr 2025 11:28:16 PM EEST
+# Recipe (MakeRecipe) for Sway by Nuc!eoN, on Thu 12 Nov 2020 10:21:18 PM CET
+compile_version=017-GIT
+url="https://github.com/swaywm/sway/releases/download/1.10.1/sway-1.10.1.tar.gz"
+file_size=5588240
+file_md5=613475773afc3a3def1380f1ff214942
+dir='sway-1.10.1'
+recipe_type=meson
+meson_variables=(
+    -Dc_link_args="-L/Programs/Pixman/Current/lib"
+)
+pre_build() {
+    sed -i 's/werror=true/werror=false/' ../meson.build
+}
