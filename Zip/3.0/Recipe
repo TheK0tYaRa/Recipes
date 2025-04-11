@@ -6,8 +6,12 @@ file_md5=7b74551e63f8ee6aab6fbc86676c0d37
 compile_version=1.8.2
 recipe_type=makefile
 makefile=unix/Makefile
-build_target=generic_gcc
+build_target=generic #generic_gcc
 dir=zip30
+pre_build() {
+    sed -i 's| -DZMEM||' unix/configure
+    sed -i 's| -DNO_DIR||' unix/configure
+}
 install_variables=(
    "prefix=$target"
 )

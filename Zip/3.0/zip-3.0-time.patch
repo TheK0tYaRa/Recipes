@@ -1,0 +1,7 @@
+--- a/timezone.h
++++ b/timezone.h
+@@ -11,3 +11,4 @@
+ #ifndef __timezone_h
+ #define __timezone_h
++#include <time.h>
+ 

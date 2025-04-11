@@ -1,0 +1,8 @@
+--- a/unix/unix.c
++++ b/unix/unix.c
+@@ -69,3 +69,5 @@
+ #endif
++#if !defined(HAVE_DIRENT_H)
+ typedef FILE DIR;
++#endif
+ /*
