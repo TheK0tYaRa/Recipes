@@ -1,0 +1,12 @@
+# Recipe for version 1.24.2 by TheK0tYaRa < thek0tyara.alod123@gmail.com >, on Fri 11 Apr 2025 05:04:18 PM EEST
+# Recipe (MakeRecipe) for GPGME by roko, <ro.ko@mcnon.com>, on Mon Mar 28 13:47:05 CEST 2005
+compile_version=017-GIT
+url="https://github.com/gpg/gpgme/archive/gpgme-1.24.2.tar.gz"
+file_size=1692596
+file_md5=3af72ff610483cdfa34ddaca48b36886
+dir="gpgme-gpgme-1.24.2"
+recipe_type=configure
+
+pre_build() {
+    ./autogen.sh
+}

@@ -1,0 +1,7 @@
+# Recipe for version 3.0.2 by TheK0tYaRa < thek0tyara.alod123@gmail.com >, on Fri 11 Apr 2025 05:29:42 PM EEST
+# Recipe (MakeRecipe) for LibAssuan by Giovani Facchini, on Qui Abr 14 15:36:48 BRT 2005
+compile_version=017-GIT
+url="https://www.gnupg.org/ftp/gcrypt/libassuan/libassuan-3.0.2.tar.bz2"
+file_size=593917
+file_md5=c6f1bf4bd2aaa79cd1635dcc070ba51a
+recipe_type=configure
