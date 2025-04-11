@@ -1,0 +1,12 @@
+# Recipe for version 2025.2 by TheK0tYaRa < thek0tyara.alod123@gmail.com >, on Fri 11 Apr 2025 06:05:42 PM EEST
+# Recipe (MakeRecipe) for LibOSTree by Lucas C. Villa Real <lucasvr@gobolinux.org>, on Thu Mar 7 13:11:42 BRT 2019
+compile_version=017-GIT
+url="https://github.com/ostreedev/ostree/releases/download/v2025.2/libostree-2025.2.tar.xz"
+file_size=2119744
+file_md5=dc5346ab549b51ea1765514ca6874677
+dir='libostree-2025.2'
+recipe_type=configure
+
+configure_options=(
+    --disable-man
+)

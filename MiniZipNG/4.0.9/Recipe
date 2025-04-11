@@ -1,0 +1,9 @@
+# Recipe (MakeRecipe) for MiniZipNG by TheK0tYaRa < thek0tyara.alod123@gmail.com >, on Fri 11 Apr 2025 08:50:06 PM EEST
+# Recipe for version 4.0.9 by TheK0tYaRa < thek0tyara.alod123@gmail.com >, on Fri 11 Apr 2025 08:50:06 PM EEST
+compile_version=017-GIT
+url="https://github.com/zlib-ng/minizip-ng/archive/refs/tags/4.0.9.tar.gz"
+file="minizip-ng-4.0.9.tar.gz"
+file_size=772117
+file_md5=36a10e9266a58d747b99484c71ceefdb
+dir='minizip-ng-4.0.9'
+recipe_type=cmake
