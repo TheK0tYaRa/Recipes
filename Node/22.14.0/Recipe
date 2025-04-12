@@ -1,0 +1,7 @@
+# Recipe for version 22.14.0 by TheK0tYaRa < thek0tyara.alod123@gmail.com >, on Sat 12 Apr 2025 04:07:11 AM EEST
+# Recipe (MakeRecipe) for Node by Hisham Muhammad <hisham@gobolinux.org>, on Sat Mar 14 20:27:20 BRT 2015
+compile_version=017-GIT
+url="https://nodejs.org/download/release/latest-v22.x/node-v22.14.0.tar.xz"
+file_size=47753700
+file_md5=46fbebddd5da0ded77ec54ebb5134b3e
+recipe_type=configure
