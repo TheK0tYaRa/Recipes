@@ -1,0 +1,9 @@
+# Recipe (MakeRecipe) for I3 by TheK0tYaRa < thek0tyara.alod123@gmail.com >, on Sat 12 Apr 2025 09:17:32 PM EEST
+# Recipe for version 4.24 by TheK0tYaRa < thek0tyara.alod123@gmail.com >, on Sat 12 Apr 2025 09:17:32 PM EEST
+compile_version=017-GIT
+url="https://github.com/i3/i3/archive/refs/tags/4.24.tar.gz"
+file="i3-4.24.tar.gz"
+file_size=4275811
+file_md5=7982a7dd61313e330797be9a633abe4d
+dir='i3-4.24'
+recipe_type=meson

@@ -1,0 +1,14 @@
+startup-notification >= 0.10
+# xcb
+XCB-Util
+XCB-Util-Cursor
+XCB-Util-Keysyms
+#xcb-icccm
+XCB-Util-XRM
+#xkbcommon
+Yajl
+PCRE2
+Cairo
+Pango
+GLib >= 2.0.0
+GObject-Introspection >= 2.0.0
