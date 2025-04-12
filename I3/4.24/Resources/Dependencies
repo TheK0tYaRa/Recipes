@@ -6,7 +6,7 @@ XCB-Util-Keysyms
 #xcb-icccm
 XCB-Util-XRM
 #xkbcommon
-Yajl
+YAJL
 PCRE2
 Cairo
 Pango
