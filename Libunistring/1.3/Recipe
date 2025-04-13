@@ -1,0 +1,7 @@
+# Recipe for version 1.3 by TheK0tYaRa < thek0tyara.alod123@gmail.com >, on Sun 13 Apr 2025 02:30:09 AM EEST
+# Recipe (MakeRecipe) for Libunistring by Ősi Róbert <7szunyu@nordtelekom.hu>, on 2010. febr. 22., hétfő, 04.32.19 CET
+compile_version=017-GIT
+url="https://ftp.gnu.org/gnu/libunistring/libunistring-1.3.tar.gz"
+file_size=4988009
+file_md5=19c1808270f0e693ca3f313c8accb3bc
+recipe_type=configure

@@ -1,0 +1,10 @@
+# Recipe for version 5.18.16 by TheK0tYaRa < thek0tyara.alod123@gmail.com >, on Sun 13 Apr 2025 01:11:59 PM EEST
+# Recipe (MakeRecipe) for Autogen by László Horváth <soma-sk8@freemail.hu>, on Mon Jan 5 20:54:30 CET 2009
+compile_version=017-GIT
+url="https://ftp.gnu.org/gnu/autogen/rel5.18.16/autogen-5.18.16.tar.gz"
+file_size=1858135
+file_md5=465d46ffe737aef2d62a5e26e35c6084
+recipe_type=configure
+configure_options=(
+    --disable-dependency-tracking
+)

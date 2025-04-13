@@ -1,0 +1,24 @@
+# Recipe for version 3.9.22 by TheK0tYaRa < thek0tyara.alod123@gmail.com >, on Sun 13 Apr 2025 01:45:46 AM EEST
+compile_version=017-GIT
+url="https://www.python.org/ftp/python/3.9.22/Python-3.9.22.tar.xz"
+file_size=19652572
+file_md5=cee32bb2e6abf73bd8dda59a6f5f56bd
+recipe_type=configure
+needs_safe_linking=yes
+
+configure_options=(
+  "--enable-shared"
+  "--enable-loadable-sqlite-extensions"
+#  "--with-cxx=no"
+)
+
+pre_build() {
+   # Make sure that the /S/Aliens patch file is sane.
+   patchfile="${recipedir}/01-search-SLL.patch.in"
+   declared_minor=$(grep "+PYTHON_MINOR" "$patchfile" | awk {'print $3'})
+   recipe_minor=$(echo "$version" | cut -d. -f2)
+   if [ "$declared_minor" != "$recipe_minor" ]
+   then
+      Die "Please update PYTHON_MINOR in $patchfile"
+   fi
+}
