@@ -1,0 +1,20 @@
+# Recipe for version 2.5.4 by TheK0tYaRa < thek0tyara.alod123@gmail.com >, on Sun 13 Apr 2025 04:40:52 PM EEST
+# Recipe (MakeRecipe) for LibTool by Andre Detsch, on Thu Jun 9 15:05:09 BRT 2005
+compile_version=017-GIT
+url="$ftpGnu/libtool/libtool-2.5.4.tar.xz"
+file_size=1056924
+file_md5=22e0a29df8af5fdde276ea3a7d351d30
+recipe_type=configure
+
+make_variables=(
+    LIBTOOL=$dir/libtool
+)
+
+pre_link() {
+    gcc_version=$(gcc -dumpversion)
+    gcc_machine=$(gcc -dumpmachine)
+    GrepReplace -B \
+        "/$gcc_machine/$gcc_version" \
+        '/$(gcc -dumpmachine)/$(gcc -dumpversion)' \
+        $target/bin/libtool
+}

@@ -1,0 +1,23 @@
+# Recipe for version 6.5 by TheK0tYaRa < thek0tyara.alod123@gmail.com >, on Sun 13 Apr 2025 04:42:10 PM EEST
+compile_version=017-GIT
+url="$ftpGnu/ncurses/ncurses-6.5.tar.gz"
+file_size=3688489
+file_md5=ac2d2629296f04c8537ca706b6977687
+
+recipe_type=configure
+
+configure_options=(
+#   --enable-widec
+   --with-shared
+   --without-debug
+#   --with-termlib
+)
+
+install_variables=(
+   ticdir="${target}/share/terminfo"
+)
+
+pre_link() {
+   chmod 755 $target/lib/*.6.*
+   [ -e $target/lib/libncurses++.a ] && chmod 644 $target/lib/libncurses++.a || true
+}

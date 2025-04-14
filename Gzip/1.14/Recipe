@@ -1,0 +1,6 @@
+# Recipe for version 1.14 by TheK0tYaRa < thek0tyara.alod123@gmail.com >, on Sun 13 Apr 2025 05:52:11 PM EEST
+compile_version=017-GIT
+url="https://ftp.gnu.org/gnu/gzip/gzip-1.14.tar.xz"
+file_size=885748
+file_md5=4bf5a10f287501ee8e8ebe00ef62b2c2
+recipe_type=configure

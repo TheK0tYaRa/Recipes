@@ -1,0 +1,9 @@
+# Recipe for version 75.9.0 by TheK0tYaRa < thek0tyara.alod123@gmail.com >, on Sun 13 Apr 2025 02:08:54 PM EEST
+# Recipe (MakeRecipe) for SetupTools by Lucas C. Villa Real <lucasvr@gobolinux.org>, on Tue Apr 15 00:52:06 GMT 2014
+compile_version=017-GIT
+url="https://github.com/pypa/setuptools/archive/refs/tags/v75.9.0.tar.gz"
+file_size=1380571
+file_md5=f2bbdedbc43f284236e8449b38627114
+recipe_type=python
+python_major=3
+dir="setuptools-75.9.0"

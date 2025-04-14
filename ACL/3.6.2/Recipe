@@ -1,0 +1,18 @@
+# Recipe for version 3.6.2 by TheK0tYaRa < thek0tyara.alod123@gmail.com >, on Sun 13 Apr 2025 05:45:38 PM EEST
+# Recipe (MakeRecipe) for ACL by ro.ko@mcnon.com, on Tue Oct 12 00:32:04 BRST 2004
+compile_version=017-GIT
+url="https://github.com/acl-dev/acl/archive/refs/tags/v3.6.2.tar.gz"
+file_size=26963986
+file_md5=222b183fe58fb3a1fbd4860581a206b2
+recipe_type=makefile #configure
+dir='acl-3.6.2'
+configure_options=(
+   --libexecdir="$target/lib/acl"
+)
+install_variables=(
+   libdir="${target}/lib"
+   libexecdir="${target}/lib/acl"
+   PKG_DEVLIB_DIR="${target}/lib/acl"
+)
+
+install_target="install"

@@ -1,0 +1,11 @@
+# Recipe for version 7.2 by TheK0tYaRa < thek0tyara.alod123@gmail.com >, on Sun 13 Apr 2025 04:45:03 PM EEST
+compile_version=017-GIT
+url="https://ftp.gnu.org/gnu/texinfo/texinfo-7.2.tar.xz"
+file_size=6408432
+file_md5=11939a7624572814912a18e76c8d8972
+recipe_type=configure
+dir='texinfo-7.2'
+install_variables=(
+   "TEXMF=$target/share/texmf"
+)
+install_target="install install-tex"

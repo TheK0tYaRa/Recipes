@@ -1,0 +1,30 @@
+# Recipe for version 3.110 by TheK0tYaRa < thek0tyara.alod123@gmail.com >, on Mon 14 Apr 2025 10:02:12 PM EEST
+# Recipe (MakeRecipe) for NSS by Jonas Karlsson <jonka750@student.liu.se>, on Wed May 31 09:34:32 CEST 2006
+compile_version=017-GIT
+url="https://github.com/nss-dev/nss/archive/refs/tags/NSS_3_110_RTM.tar.gz"
+file_size=76849432
+file_md5=d7fa2244c5d502e6c291b906cd670411
+recipe_type=makefile
+do_install=no
+dir=nss-NSS_3_110_RTM
+
+build_variables=(
+   BUILD_OPT=1
+   USE_SYSTEM_ZLIB=1
+   NSS_USE_SYSTEM_SQLITE=1
+   NSPR_INCLUDE_DIR="${goboHeaders}/nspr"
+   $([ $(uname -m) = x86_64 ] && echo USE_64=1)
+)
+
+pre_link() {
+   Quiet pushd ../dist &&
+   install -v -m755 Linux*/lib/*.so              ${target}/lib              &&
+   install -v -m644 Linux*/lib/{*.chk,libcrmf.a} ${target}/lib              &&
+   install -v -m755 -d                           ${target}/include/nss      &&
+   cp -v -RL {public,private}/nss/*              ${target}/include/nss      &&
+   chmod -v 644                                  ${target}/include/nss/*    &&
+   install -v -m755 Linux*/bin/{certutil,nss-config,pk12util} ${target}/bin &&
+   install -v -m755 -d                           ${target}/lib/pkgconfig    &&
+   install -v -m644 Linux*/lib/pkgconfig/nss.pc  ${target}/lib/pkgconfig
+   Quiet popd
+}

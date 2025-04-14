@@ -1,0 +1,14 @@
+# Recipe for version 0.24 by TheK0tYaRa < thek0tyara.alod123@gmail.com >, on Sun 13 Apr 2025 05:48:56 PM EEST
+compile_version=017-GIT
+url="https://ftp.gnu.org/pub/gnu/gettext/gettext-0.24.tar.gz"
+file_size=27367136
+file_md5=4c08205be7464b7cb5b6856325779f22
+recipe_type=configure
+configure_options=(
+   --disable-static
+   --with-xz
+   --without-included-gettext
+   --disable-java
+   --with-included-glib
+   --with-included-libcroco
+)
