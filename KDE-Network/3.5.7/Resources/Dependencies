@@ -11,6 +11,6 @@ MDNSResponder >= 87 # Recommended
 #OpenSLP >= 1.2.1 # Optional (Unversioned)
 OpenSSL >= 0.9.6 # Recommended
 Perl >= 5.0
-PPP >= 2.4.3 # Optional (Unversioned)
+PPP >= 2.4.3 [ppp] # Optional (Unversioned)
 Qt >= 3.3.2 < 4.0
 ZLib >= 1.1

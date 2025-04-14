@@ -23,4 +23,4 @@ WPA_Supplicant 2.5
 #######################
 # ModemManager 1.6.0
 BlueZ 5.41
-PPP 2.4.7
+PPP 2.4.7 [ppp]

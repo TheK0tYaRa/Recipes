@@ -13,7 +13,7 @@ Meanwhile [meanwhile]
 #OpenSLP >= 1.2.1 # Optional (Unversioned)
 OpenSSL >= 0.9.6 # Recommended
 Perl >= 5.0
-PPP >= 2.4.3 # Optional (Unversioned)
+PPP >= 2.4.3 [ppp] # Optional (Unversioned)
 QCA-TLS >= 1.0, < 2 [ssl] # Runtime dep
 Qt >= 3.3.8b, < 4.0
 ZLib >= 1.1
