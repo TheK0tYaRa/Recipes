@@ -1,0 +1,9 @@
+# Recipe (MakeRecipe) for RHash by TheK0tYaRa < thek0tyara.alod123@gmail.com >, on Wed 16 Apr 2025 07:05:57 AM EEST
+# Recipe for version 1.4.5 by TheK0tYaRa < thek0tyara.alod123@gmail.com >, on Wed 16 Apr 2025 07:05:57 AM EEST
+compile_version=017-GIT
+url="https://sourceforge.net/projects/rhash/files/rhash/1.4.5/rhash-1.4.5-src.tar.gz/download"
+file="rhash-1.4.5-src.tar.gz"
+file_size=444526
+file_md5=c5f4fa0aa4dc5b21ee9931abc06d5245
+dir='RHash-1.4.5'
+recipe_type=configure

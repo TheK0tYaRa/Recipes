@@ -1,0 +1,12 @@
+# Recipe (MakeRecipe) for CppDAP by TheK0tYaRa < thek0tyara.alod123@gmail.com >, on Wed 16 Apr 2025 06:45:31 AM EEST
+# Recipe for version 1.58.0 by TheK0tYaRa < thek0tyara.alod123@gmail.com >, on Wed 16 Apr 2025 06:45:31 AM EEST
+compile_version=017-GIT
+url="https://github.com/google/cppdap/archive/refs/tags/dap-1.58.0-a.tar.gz"
+file="cppdap-dap-1.58.0-a.tar.gz"
+file_size=100711
+file_md5=24465ac50c76a19565f07f4a723b78cb
+dir='cppdap-dap-1.58.0-a'
+recipe_type=cmake
+cmake_options=(
+    -D CPPDAP_USE_EXTERNAL_JSONCPP_PACKAGE=ON
+)
