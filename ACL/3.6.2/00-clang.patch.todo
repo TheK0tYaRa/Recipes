@@ -1,5 +1,0 @@
---- a/lib_acl/src/stdlib/sys/acl_process.c
-+++ b/lib_acl/src/stdlib/sys/acl_process.c
-@@ -46,1 +46,1 @@
--const char *acl_process_path()
-+const char *acl_process_path(void)
