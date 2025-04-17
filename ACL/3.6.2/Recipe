@@ -4,15 +4,45 @@ compile_version=017-GIT
 url="https://github.com/acl-dev/acl/archive/refs/tags/v3.6.2.tar.gz"
 file_size=26963986
 file_md5=222b183fe58fb3a1fbd4860581a206b2
-recipe_type=makefile #configure
+file="acl-3.6.2.tar.gz"
+recipe_type=cmake #makefile #configure
+#build_target="all_lib acl_master" #_lib"
 dir='acl-3.6.2'
-configure_options=(
-   --libexecdir="$target/lib/acl"
+#configure_options=(
+#   --libexecdir="$target/lib/acl"
+#   --prefix="$target"
+#)
+cmake_options=(
+#    --disable-static
+    -DCMAKE_INSTALL_PREFIX=$target
+    -DACL_BUILD_SHARED=YES
 )
-install_variables=(
-   libdir="${target}/lib"
-   libexecdir="${target}/lib/acl"
-   PKG_DEVLIB_DIR="${target}/lib/acl"
+use_mysql=(
+    -DHAS_MYSQL_DLL=YES
+)
+use_pgsql=(
+    -DHAS_PGSQL_DLL=YES
+)
+use_sqlite=(
+    -DHAS_SQLITE_DLL=YES
+)
+use_polarssl=(
+    -DHAS_POLARSSL_DLL=YES
+)
+use_mbedtls=(
+    -DHAS_MBEDTLS_DLL=YES
+)
+use_openssl=(
+    -DHAS_OPENSSL_DLL=YES
 )
 
-install_target="install"
+#pre_build() {
+#    find . -name 'Makefile*' -exec sed -Ei 's|^(\ +?CC\ +\=\ ?)g\+\+|\1clang++|g;s|^(\ +?CC\ +\=\ ?)gcc|\1clang|g' {} \;
+#}
+#install_variables=(
+#   libdir="${target}/lib"
+#   libexecdir="${target}/lib/acl"
+#   PKG_DEVLIB_DIR="${target}/lib/acl"
+#)
+
+#install_target="install"

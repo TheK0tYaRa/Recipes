@@ -1,0 +1,4 @@
+Gettext
+LibTool
+Automake = 1.16.5
+Autoconf = 2.71

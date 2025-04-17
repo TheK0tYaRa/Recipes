@@ -1,0 +1,28 @@
+# Recipe for version 2.5.2 by TheK0tYaRa < thek0tyara.alod123@gmail.com >, on Wed 16 Apr 2025 11:22:41 AM EEST
+# Recipe (MakeRecipe) for ATTR by ro.ko@mcnon.com, on Tue Oct 12 00:31:42 BRST 2004
+compile_version=017-GIT
+url="https://download.savannah.nongnu.org/releases/attr/attr-2.5.2.tar.xz"
+#"https://download-mirror.savannah.gnu.org/releases/attr/attr-2.5.2.tar.gz"
+file_size=334180
+file_md5=4da9c1d25394946434e5913f49d778b6
+dir="attr-2.5.2"
+recipe_type=configure
+install_target="install" # install-lib install-dev" 
+environment=(
+    CC=gcc
+    CCLD=ld
+)
+configure_options=(
+    --libexecdir=$target/lib/attr
+    --disable-static
+    --sysconfdir=$goboSettings
+    --docdir="$target/usr/share/doc/attr-2.5.2"
+)
+pre_install() {
+    make check
+}
+install_variables=(
+   libdir="${target}/lib"
+   libexecdir="${target}/lib/attr"
+   PKG_DEVLIB_DIR="${target}/lib/attr"
+)

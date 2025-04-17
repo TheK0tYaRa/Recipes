@@ -1,0 +1,31 @@
+# Recipe for version 3.49.1 by TheK0tYaRa < thek0tyara.alod123@gmail.com >, on Wed 16 Apr 2025 09:45:52 AM EEST
+compile_version=017-GIT
+url="https://sqlite.org/2025/sqlite-autoconf-3490100.tar.gz"
+file_size=3226385
+file_md5=8d77d0779bcd9993eaef33431e2e0c30
+recipe_type=configure
+
+environment=(
+    #CFLAGS="-DSQLITE_ENABLE_FTS3=1 -DSQLITE_ENABLE_COLUMN_METADATA=1 -DSQLITE_SECURE_DELETE=1 -DSQLITE_ENABLE_UNLOCK_NOTIFY=1"
+    CPPFLAGS="-D SQLITE_ENABLE_COLUMN_METADATA=1 \
+              -D SQLITE_ENABLE_UNLOCK_NOTIFY=1 \
+              -D SQLITE_ENABLE_DBSTAT_VTAB=1 \
+              -D SQLITE_SECURE_DELETE=1"
+    #TCLLIBDIR="$target/lib/tcl8.5"
+    CC=gcc
+    CXX=g++
+    LD=ld
+)
+
+configure_options=(
+#    --enable-dynamic-extensions
+    --disable-readline
+    --disable-static
+    --enable-fts{4,5}
+)
+
+with_readline="--enable-readline"
+
+pre_link() {
+    ln -s $target/bin/sqlite3 $target/bin/sqlite
+}

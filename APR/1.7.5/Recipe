@@ -1,0 +1,10 @@
+# Recipe for version 1.7.5 by TheK0tYaRa < thek0tyara.alod123@gmail.com >, on Wed 16 Apr 2025 08:41:23 AM EEST
+# Recipe (MakeRecipe) for APR by Kosh <kosh.linux at gmail.com>, on Tue Feb 28 22:02:35 BRT 2006
+compile_version=017-GIT
+url="https://archive.apache.org/dist/apr/apr-1.7.5.tar.bz2"
+file_size=898264
+file_md5=8b156d4d0e804cb1f172312ffe087c25
+recipe_type=configure
+configure_options=(
+   --enable-layout=GoboLinux
+)
