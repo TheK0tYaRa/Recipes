@@ -8,7 +8,7 @@ GStreamer >= 0.10
 GST-Plugins-Base >= 0.10
 GTK+ >= 2.8 [gtk2] #optional
 LibICU4C
-LibXML2 >= 2.6
+LibXML2 >= 2.6, < 2.14.0
 LibXSLT >= 1.1.7 #optional
 LibSoup >= 2.23 # To unify desktop we use libsoup for gnome
 Pango >= 1.12

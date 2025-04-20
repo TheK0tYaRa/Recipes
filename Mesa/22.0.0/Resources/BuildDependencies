@@ -16,7 +16,7 @@ DirectX-Headers
 Zstd
 LibGLVnd
 PIP3:Mako
-LibXML2
+LibXML2 < 2.14.0
 LibX11
 GLSLang
 LibXShmfence

@@ -5,4 +5,4 @@ XProp
 LibXi
 LibXtst
 LibX11
-LibXML2
+LibXML2 < 2.14.0

@@ -8,7 +8,7 @@ LibBonoboui >= 2.13.1
 LibGlade >= 2.0.0
 LibGnome >= 2.13.7
 LibGnomecanvas >= 2.0.0
-LibXML2 >= 2.4.20
+LibXML2 >= 2.4.20, < 2.14.0
 Pango >= 1.1.2
 Popt >= 1.5
 ZLib 1.2.2

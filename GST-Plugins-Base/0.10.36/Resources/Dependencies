@@ -8,5 +8,5 @@ LibOIL >= 0.3.14
 LibTheora >= 1.0alpha5
 LibVisual >= 0.4.0
 LibVorbis >= 1.0
-LibXML2
+LibXML2 < 2.14.0
 Pango [gnome,rtl]

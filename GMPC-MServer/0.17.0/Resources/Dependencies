@@ -2,6 +2,6 @@ GLib >= 2.4
 GMPC >= 0.15.4.102
 GTK+ >= 2.4
 LibMPD >= 0.14.99
-LibXML2
+LibXML2 < 2.14.0
 LibMicroHTTPD
 TagLib

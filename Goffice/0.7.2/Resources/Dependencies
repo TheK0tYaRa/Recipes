@@ -21,7 +21,7 @@ LibGnomePrint 2.12.1
 LibGnomeui 2.9.1
 LibGSF >= 1.14.9
 LibPNG 1.2.8
-LibXML2 >= 2.4.12
+LibXML2 >= 2.4.12, < 2.14.0
 OpenSSL 0.9.7i
 ORBit2 2.13.2
 PCRE 7.4

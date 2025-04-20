@@ -3,7 +3,7 @@ FreeType >= 2.0.0 # Recommended
 #GCC 3.4.4
 KDE-Base >= 3.5.0, < 4.0
 KDE-Libs >= 3.5.0, < 4.0
-LibXML2 >= 2.4.8 # Recommended
+LibXML2 >= 2.4.8, < 2.14.0 # Recommended
 LibXSLT >= 1.0.7 # Recommended
 MDNSResponder >= 87 # Recommended
 Perl >= 5.0

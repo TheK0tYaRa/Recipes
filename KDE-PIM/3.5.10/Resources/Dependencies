@@ -9,7 +9,7 @@ Gnokii [nokia]
 JPEG >= 6b
 LibMAL >= 0.20 [pda]
 LibPNG
-LibXML2 >= 2.4.8
+LibXML2 >= 2.4.8, < 2.14.0
 LibXSLT >= 1.0.7 # Recommended
 OpenSSL >= 0.9.6
 OpenSync >= 0.19

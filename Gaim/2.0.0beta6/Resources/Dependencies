@@ -10,4 +10,4 @@ LibGPG-Error 1.0
 OpenSSL 0.9.8d
 Pango 1.10.0
 ZLib 1.2.3
-LibXML2 >= 2.6.0
+LibXML2 >= 2.6.0, < 2.14.0

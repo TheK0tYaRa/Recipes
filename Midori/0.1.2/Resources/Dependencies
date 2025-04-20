@@ -3,6 +3,6 @@ GLib >= 2.16
 GTK+ >= 2.10.0
 LibSoup >= 2.23.1
 LibUnique >= 0.9
-LibXML2 >= 2.6
+LibXML2 >= 2.6, < 2.14.0
 SQLite >= 3.0 [sqlite]
 WebKit

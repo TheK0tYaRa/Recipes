@@ -1,5 +1,5 @@
 GTK+ 2.0
-LibXML2
+LibXML2 < 2.14.0
 Gettext
 GnuTLS
 ZLib

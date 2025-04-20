@@ -16,7 +16,7 @@ LibOIL >= 0.3.8
 LibPNG >= 1.2
 LibShout >= 2.0 [libshout]
 LibSoup >= 2.3.2 [gnome]
-LibXML2 >= 2.4.9
+LibXML2 >= 2.4.9, < 2.14.0
 PulseAudio >= 0.9.8 [pulseaudio]
 Speex >= 1.0.4, < 1.1 | Speex >= 1.1.5
 TagLib >= 1.4

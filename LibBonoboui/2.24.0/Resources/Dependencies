@@ -9,5 +9,5 @@ LibBonobo >= 2.13.0
 LibGlade >= 1.99.11
 LibGnome >= 2.13.7
 LibGnomecanvas >= 1.116.0
-LibXML2 >= 2.4.20
+LibXML2 >= 2.4.20, < 2.14.0
 Pango 1.8.1

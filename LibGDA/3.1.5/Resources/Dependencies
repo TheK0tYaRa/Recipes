@@ -1,5 +1,5 @@
 FAM [fam]
 Gamin >= 0.1.8 [gamin]
 GLib >= 2.8.0
-LibXML2 >= 2.0
+LibXML2 >= 2.0, < 2.14.0
 Readline

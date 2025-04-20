@@ -16,7 +16,7 @@ LibBonobo >= 2.4.2
 LibGlade >= 2.0
 LibGnome >= 2.2.0
 LibSoup >= 2.2.91
-LibXML2 >= 2.5.0
+LibXML2 >= 2.5.0, < 2.14.0
 NSPR
 ORBit2 >= 2.9.8
 #OpenSSL 0.9.8d

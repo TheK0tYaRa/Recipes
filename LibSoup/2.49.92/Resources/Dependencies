@@ -3,7 +3,7 @@ GLib >= 2.15.3
 GnuTLS >= 1.0.22
 LibGCrypt >= 1.2.0
 LibProxy [gnome]
-LibXML2 >= 2.0
+LibXML2 >= 2.0, < 2.14.0
 SQLite >= 3.0 [gnome]
 Vala >= 0.32.1
 ZLib >= 1.2.2

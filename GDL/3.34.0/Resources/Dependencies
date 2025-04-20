@@ -1,4 +1,4 @@
 GTK+ >= 3.24.14, < 4.0.0
-LibXML2 >= 2.9.10
+LibXML2 >= 2.9.10, < 2.14.0
 GObject-Introspection >= 1.62.0
 Intltool >= 0.51.0	

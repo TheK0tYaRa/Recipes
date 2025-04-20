@@ -13,7 +13,7 @@ LibGnome >= 2.14.0
 LibGnomecanvas 2.10.2
 LibGnomeui >= 2.6.0
 LibRSVG >= 2.0.1
-LibXML2 >= 2.4.7
+LibXML2 >= 2.4.7, < 2.14.0
 ORBit2 >= 2.4.0
 OpenSSL 0.9.7g
 Pango >= 1.1.2

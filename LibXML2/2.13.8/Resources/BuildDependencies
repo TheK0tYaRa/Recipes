@@ -1,0 +1,8 @@
+# mandatory
+LibCap
+MPC
+Zstd
+
+LibTool
+#Automake >= 1.16.3 # we do meson here
+PIP3:meson

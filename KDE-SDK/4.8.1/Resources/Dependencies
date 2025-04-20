@@ -3,7 +3,7 @@ GCC 4.1.2
 JPEG 6b
 KDE-Libs >= 4.4.0
 KDE-PIM-Libs >= 4.4.0
-LibXML2 >= 2.6.31     # optional
+LibXML2 >= 2.6.31, < 2.14.0     # optional
 LibXSLT >= 1.1.22     # optional
 Strigi >= 0.7.2
 Subversion >= 1.4.4   # optional

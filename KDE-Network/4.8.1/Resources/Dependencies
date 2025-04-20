@@ -12,7 +12,7 @@ LibKTorrent >= 1.2.0
 KTorrent >= 4.2.0
 LibMMS >= 0.6.2
 LibVNCServer 0.9.8.2 [libvncserver]
-LibXML2 >= 2.6.6 # Optional
+LibXML2 >= 2.6.6, < 2.14.0 # Optional
 LibXSLT >= 1.1.17 # Optional
 MediaStreamer 2.8.2
 Meanwhile 1.0.2 [meanwhile]

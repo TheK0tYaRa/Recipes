@@ -2,7 +2,7 @@ Fontconfig 2.3.95
 FreeType >= 2.1.9
 Glitz >= 0.5.1 [glitz]
 LibPNG >= 1.2
-LibXML2
+LibXML2 < 2.14.0
 Pixman >= 0.12.0
 XCB-Util
 ZLib 1.2.0

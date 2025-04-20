@@ -1,0 +1,12 @@
+#LibFFI 3.0.9
+#Linux-PAM 1.1.4
+#MozJS 17.0.0
+#ZLib 1.2.5
+#
+LibCap
+Gio
+GLib
+GObject
+Expat
+CMake
+Duktape

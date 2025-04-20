@@ -1,4 +1,4 @@
 GLib >= 2.14
-LibXML2 >= 2.4.9
+LibXML2 >= 2.4.9, < 2.14.0
 Meson >= 1.1
 GLib >= 2.64.0

@@ -1,3 +1,8 @@
+# mandatory
+LibCap
+MPC
+Zstd
+
 Gettext 0.14
 Intltool >= 0.35.0
 Pkgconfig >= 0.9.0

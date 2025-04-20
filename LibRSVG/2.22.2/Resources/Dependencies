@@ -9,7 +9,7 @@ GTK+ >= 2.6.0
 #LibGnomePrint >= 2.2.0 # Optional
 #LibGnomePrintui >= 2.2.0 # Optional
 LibGSF >= 1.6.0 # Optional
-LibXML2 >= 2.4.7
+LibXML2 >= 2.4.7, < 2.14.0
 OpenSSL 0.9.7e
 Pango >= 1.2.0
 ZLib 1.2.0

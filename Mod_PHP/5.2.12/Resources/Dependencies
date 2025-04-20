@@ -5,7 +5,7 @@ HTTPD >= 2.0.44
 JPEG >= 6b
 MySQL [mysql]
 LibPNG >= 1.2.16
-LibXML2 >= 2.6.11
+LibXML2 >= 2.6.11, < 2.14.0
 LibXSLT >= 1.1.0
 OpenSSL >= 0.9.6
 OpenLDAP [openldap]

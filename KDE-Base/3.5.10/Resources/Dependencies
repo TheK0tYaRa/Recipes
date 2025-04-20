@@ -12,7 +12,7 @@ KDE-Libs >= 3.5.6, < 4
 Kerberos [kerberos]
 LibPNG >= 1.2.10 # (Unversioned)
 LibRaw1394
-LibXML2 >= 2.4.8 # Recommended
+LibXML2 >= 2.4.8, < 2.14.0 # Recommended
 LibXSLT >= 1.0.7 # Recommended
 LibUSB >= 0.1.12 # Recommended
 LibVorbis >= 1.1.2 # Recommended (Unversioned)

@@ -1,6 +1,14 @@
-CA-Certificates 20090208 #optional
-GCC 4.2.4
-GnuTLS 2.8.1
-LibXML2 2.7.2
-SQLite 3.6.11
-ZLib 1.2.3
+# mandatory
+LibCap
+MPC
+Zstd
+
+# Aria2
+Flex
+
+#CA-Certificates 20090208 #optional
+#GCC 4.2.4
+#GnuTLS 2.8.1
+#LibXML2 2.7.2
+#SQLite 3.6.11
+#ZLib 1.2.3

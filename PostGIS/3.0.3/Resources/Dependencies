@@ -4,7 +4,7 @@ Gettext >= 0.17.0.0
 GDAL >= 1.9.0 [gdal]
 GEOS >= 3.4.0
 Json-C >= 0.9 [json-c]
-LibXML2 >= 2.5.0
+LibXML2 >= 2.5.0, < 2.14.0
 PostgreSQL 9.1.4
 Proj >= 4.6.0
 

@@ -12,7 +12,7 @@ JPEG 6b
 LibICU4C
 LibPNG >= 1.2
 LibSoup >= 2.25.91
-LibXML2 >= 2.6
+LibXML2 >= 2.6, < 2.14.0
 LibXSLT >= 1.1.7 #optional
 Pango >= 1.0 [gtk2]
 SQLite >= 3.0 # optional - needed for various info storage

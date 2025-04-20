@@ -5,5 +5,5 @@ GTK+
 LibART_LGPL
 LibGlade
 LibGnomecanvas
-LibXML2
+LibXML2 < 2.14.0
 Pango

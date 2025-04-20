@@ -2,4 +2,4 @@ XKeyboard-Config
 Wayland
 Wayland-Protocols
 LibXCB
-LibXML2
+LibXML2 < 2.14.0

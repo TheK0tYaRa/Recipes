@@ -3,38 +3,102 @@
 compile_version=017-GIT
 urls=(
 	https://github.com/llvm/llvm-project/releases/download/llvmorg-19.1.7/llvm-19.1.7.src.tar.xz
+
+    # additional
 	https://anduin.linuxfromscratch.org/BLFS/llvm/llvm-cmake-19.1.7.src.tar.xz
     https://anduin.linuxfromscratch.org/BLFS/llvm/llvm-third-party-19.1.7.src.tar.xz
+
+    # recommended
+    https://github.com/llvm/llvm-project/releases/download/llvmorg-19.1.7/clang-19.1.7.src.tar.xz
+
+    # optional
+    https://github.com/llvm/llvm-project/releases/download/llvmorg-19.1.7/compiler-rt-19.1.7.src.tar.xz
+)
+file_sizes=(
+67828200
+9300
+454700
+23510492
+2530008
+)
+file_md5s=(
+45229744809103ad151e3757a0f21d3d
+52b5249a06305e19c3bdae2e972c99c3
+d950171ac5ea4a1a20cb8f6eb9f1c8eb
+8a29181acd27b9c03b0039b75f5fcaa0
+0286b00ef3057362eb0636d3298999b1
 )
 dir="llvm-19.1.7.src"
 recipe_type=cmake
 
-#pre_build() {
-#    sed '/LLVM_COMMON_CMAKE_UTILS/s@../cmake@cmake-19.1.7.src@' -i ../CMakeLists.txt
-#    sed '/LLVM_THIRD_PARTY_DIR/s@../third-party@third-party-19.1.7.src@' -i ../cmake/modules/HandleLLVMOptions.cmake
+pre_build() {
+    [ -e .lazy ]&& echo Lazy, are we? ; return 0
+    cd ..
+    # llvm
+    sed '/LLVM_COMMON_CMAKE_UTILS/s@../cmake@..\/cmake-19.1.7.src@' \
+        -i CMakeLists.txt
+    sed '/LLVM_THIRD_PARTY_DIR/s@../third-party@..\/third-party-19.1.7.src@' \
+        -i cmake/modules/HandleLLVMOptions.cmake
 
     # script fix
-#    grep -rl '#!.*python' | xargs sed -i '1s/python$/python3/' || echo "Everything is already python3"
-#}
+    grep -rl '#!.*python' | xargs sed -i '1s/python$/python3/' || echo "Everything is already python3"
+
+    # clang
+    mv ../clang-19.1.7.src tools/clang
+
+    # compiler-rt
+    mv ../compiler-rt-19.1.7.src projects/compiler-rt
+
+    # tests
+    sed 's/utility/tool/' -i utils/FileCheck/CMakeLists.txt
+    #with compiler-rt?
+    sed -e 's/config.has_no_default_config_flag/True/' \
+        -i projects/compiler-rt/test/lit.common.cfg.py
+    cd _build
+    touch .lazy
+}
 
 cmake_options=(
-    -DCMAKE_INSTALL_PREFIX=$goboIndex
-    -DCMAKE_SKIP_INSTALL_RPATH=ON
-    -DLLVM_ENABLE_FFI=ON
-    -DFFI_INCLUDE_DIR=$(pkg-config --variable=includedir libffi)
-    -DCMAKE_BUILD_TYPE=Release
-    -DLLVM_BUILD_LLVM_DYLIB=ON
-    -DLLVM_LINK_LLVM_DYLIB=ON
-    -DLLVM_ENABLE_RTTI=ON
-    -DLLVM_TARGETS_TO_BUILD="host;AMDGPU;BPF"
-    -DLLVM_BINUTILS_INCDIR=$goboIndex/include
-    -DLLVM_INCLUDE_BENCHMARKS=OFF
-    -DCLANG_DEFAULT_PIE_ON_LINUX=ON
-    -DLLVM_INSTALL_UTILS=ON
-    -DLLVM_INCLUDE_TESTS=OFF
-    -DLLVM_BUILD_DOCS=OFF
-    -DLLVM_ENABLE_DOXYGEN=OFF
-    -DSPHINX_WARNINGS_AS_ERRORS=OFF
-    -DPYTHON_EXECUTABLE=$goboExecutables/python3
+    # cmake
+    -D CMAKE_INSTALL_PREFIX=$goboIndex
+    -D CMAKE_SKIP_INSTALL_RPATH=ON
+    -D CMAKE_BUILD_TYPE=Release
+    
+    # sphinx
+#    -D SPHINX_WARNINGS_AS_ERRORS=OFF
+
+    # includes
+    -D FFI_INCLUDE_DIR=$(pkg-config --variable=includedir libffi)
+
+    # llvm
+    -D LLVM_ENABLE_FFI=ON
+    -D LLVM_BUILD_LLVM_DYLIB=ON
+    -D LLVM_LINK_LLVM_DYLIB=ON
+    -D LLVM_ENABLE_RTTI=ON
+    -D LLVM_TARGETS_TO_BUILD="host;AMDGPU;BPF"
+    -D LLVM_BINUTILS_INCDIR=$goboIndex/include
+    -D LLVM_INCLUDE_BENCHMARKS=OFF
+    -D LLVM_INSTALL_UTILS=ON
+    -D LLVM_INCLUDE_TESTS=OFF
+    -D LLVM_BUILD_DOCS=OFF
+    -D LLVM_ENABLE_DOXYGEN=OFF
+
+    # clang
+    -D CLANG_DEFAULT_PIE_ON_LINUX=ON
+    -D CLANG_CONFIG_FILE_SYSTEM_DIR=$goboSettings/clang
+
+    # globals
+    -W no-dev
+#    -G Ninja
+#    -D PYTHON_EXECUTABLE=$goboExecutables/python3
 )
 
+pre_install() {
+    # tests
+    sh -c 'ulimit -c 0 && ninja check-all'
+
+    mkdir -pv /etc/clang &&
+    for i in clang clang++; do
+        echo -fstack-protector-strong > /etc/clang/$i.cfg
+    done
+}

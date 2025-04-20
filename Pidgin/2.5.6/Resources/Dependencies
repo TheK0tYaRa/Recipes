@@ -7,7 +7,7 @@ GLib >= 2.0.0
 GStreamer >= 0.10.10 [gstreamer]
 GTK+ >= 2.0.0 [gtk2]
 GtkSpell >= 2.0.2 [gtkspell]
-LibXML2 >= 2.6.0
+LibXML2 >= 2.6.0, < 2.14.0
 Meanwhile >= 1.0.0, < 2.0.0 [meanwhile]
 Mono [mono]
 Ncurses [ncurses]

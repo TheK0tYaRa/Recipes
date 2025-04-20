@@ -1,6 +1,6 @@
 Make
 GCC
-LibXML2
+LibXML2 < 2.14.0
 SDL
 SDL_Image
 SDL_Mixer 1.2.8

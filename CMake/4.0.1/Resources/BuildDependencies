@@ -1,0 +1,8 @@
+#GCC
+#ZLib
+#Bzip2
+#Expat
+Curl >= 8.13.0
+LibArchive >= 3.7.9
+LibUV >= 1.50.0
+NGHTTP2 >= 1.65.0

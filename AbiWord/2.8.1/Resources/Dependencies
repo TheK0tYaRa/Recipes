@@ -1,4 +1,4 @@
-Expat | LibXML2
+Expat | LibXML2 < 2.14.0
 Enchant >= 1.2.0
 Fontconfig >= 1.0
 FreeType >= 2.1.0

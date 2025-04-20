@@ -5,7 +5,7 @@ LibPNG 1.2.8
 LibXFCE4MCS >= 4.4.0
 LibXFCE4Util >= 4.4.0
 LibXFCEGUI4 >= 4.4.0
-LibXML2 >= 2.4.0
+LibXML2 >= 2.4.0, < 2.14.0
 XFCE-MCS-Manager >= 4.4.0
 XFCE4-Panel >= 4.4.0
 ZLib 1.2.3

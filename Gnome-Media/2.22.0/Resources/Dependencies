@@ -10,7 +10,7 @@ LibBonobo >= 2.0.0
 LibGlade >= 2
 LibGnome >= 2.13.7
 LibGnomeui >= 2.13.2
-LibXML2 >= 2.5.0
+LibXML2 >= 2.5.0, < 2.14.0
 Nautilus-CD-Burner >= 2.9.0
 ORBit2
 ZLib 1.2.1

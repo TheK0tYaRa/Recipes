@@ -8,7 +8,7 @@ KDE-PIM-Libs >= 4.1.3
 LibIDN 0.6.9 [libidn]
 LibOTR 3.2.0 [libotr]
 LibVNCServer 0.9.1 [libvncserver]
-LibXML2 >= 2.6.6 # Optional
+LibXML2 >= 2.6.6, < 2.14.0 # Optional
 LibXSLT >= 1.1.17 # Optional
 MDNSResponder 107.1 [mdnsresponder]
 OpenSSL 0.9.8g [openssl]

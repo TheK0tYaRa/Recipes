@@ -1,6 +1,6 @@
 GLib >= 2.10
 GTK+ >= 2.8
-LibXML2
+LibXML2 < 2.14.0
 LibMPD >= 0.16.0
 GMPC >= 0.16.1
 

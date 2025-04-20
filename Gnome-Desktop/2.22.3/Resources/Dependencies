@@ -2,7 +2,7 @@ GConf >= 2.0.0
 GLib >= 2.15.4
 GTK+ >= 2.11.3
 LibGnomeui >= 2.6.0
-LibXML2 >= 2.4.20
+LibXML2 >= 2.4.20, < 2.14.0
 Startup-Notification >= 0.5
 ZLib 1.2.1
 Scrollkeeper

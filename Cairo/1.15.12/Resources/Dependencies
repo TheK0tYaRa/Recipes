@@ -3,7 +3,7 @@ FreeType >= 2.1.9
 GLib 2.49.5
 Glitz >= 0.5.1 [glitz]
 LibPNG >= 1.2
-LibXML2
+LibXML2 < 2.14.0
 #LibRSVG # will bring GTK+
 Pixman >= 0.16.0
 ZLib 1.2.0

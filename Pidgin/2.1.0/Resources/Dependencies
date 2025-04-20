@@ -5,7 +5,7 @@ GnuTLS
 GLib >= 2.0.0
 GTK+ >= 2.0.0
 #GtkSpell >= 2.0.2
-LibXML2 >= 2.6.0
+LibXML2 >= 2.6.0, < 2.14.0
 Ncurses
 Pango >= 1.4.0
 Tcl >= 8.3

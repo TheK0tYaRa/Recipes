@@ -7,7 +7,7 @@ GLib >= 2.4
 JPEG >= 6b
 LibMNG >= 1.0.9
 LibPNG >= 1.0.17
-LibXML2 >= 2.6.30
+LibXML2 >= 2.6.30, < 2.14.0
 NAS [nas]
 OpenSSL >= 0.9.7
 TIFF >= 3.8.0

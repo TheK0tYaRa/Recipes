@@ -5,10 +5,12 @@ file_size=27367136
 file_md5=4c08205be7464b7cb5b6856325779f22
 recipe_type=configure
 configure_options=(
-   --disable-static
-   --with-xz
-   --without-included-gettext
-   --disable-java
-   --with-included-glib
-   --with-included-libcroco
+  --prefix=$target
+  --disable-static
+  --enable-relocatable
+  --with-xz
+  --without-included-gettext
+  --disable-java
+  --with-included-glib
+  --with-included-libcroco
 )

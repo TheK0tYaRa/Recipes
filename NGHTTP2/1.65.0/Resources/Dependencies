@@ -1,0 +1,16 @@
+# mandatory
+LibXML2 >= 2.6.26, < 2.14.0 [xml] #2.14.1
+
+#optional
+#OpenSSL [oppenssl]
+#LibBPF [bpf]
+# SystemD >= 209.0.0 [systemd]
+#Jansson >= 2.5.0 [jansson]
+#LibEvent >= 2.0.8.0 [libevent]
+#JemAlloc
+
+#LibEV
+#ZLib
+#C-Ares
+#LibBrotli
+

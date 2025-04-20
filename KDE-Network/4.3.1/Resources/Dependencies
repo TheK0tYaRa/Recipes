@@ -9,7 +9,7 @@ LibIDN 0.6.9 [libidn]
 LibMSN >= 4.0beta4
 LibOTR 3.2.0 [libotr]
 LibVNCServer 0.9.1 [libvncserver]
-LibXML2 >= 2.6.6 # Optional
+LibXML2 >= 2.6.6, < 2.14.0 # Optional
 LibXSLT >= 1.1.17 # Optional
 Meanwhile 1.0.2 [meanwhile]
 MDNSResponder 107.1 [mdnsresponder]
