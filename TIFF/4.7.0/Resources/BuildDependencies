@@ -1,1 +1,9 @@
-LibTool 1.5.22
+LibCap
+GCC [gcc]
+MPC [gcc]
+Zstd [gcc]
+LLVM [clang]
+LibICU4C [clang]
+Flex
+
+CMake >= 4.0.1

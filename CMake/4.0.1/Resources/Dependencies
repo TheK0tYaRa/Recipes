@@ -1,10 +1,10 @@
-GCC >= 14.2.0 [fortran]
+GCC >= 14.2.0 [gfortran]
 Git >= 2.49.0 [test]
 Mercurial >= 7.0.1 [test]
 OpenJDK >= 23.0.2 [test]
-QT >= 6.9.0 [qt]
+QT6 >= 6.9.0 [qt6]
 Sphinx >= 8.2.3 [doc]
 Subversion >= 1.14.5 [test]
-CppDAP
-JsonCpp
-RHash
+CppDAP [cppdap]
+JsonCpp [jsoncpp]
+RHash [rhash]

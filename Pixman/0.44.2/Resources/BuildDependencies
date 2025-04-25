@@ -1,4 +1,8 @@
-LibTool
-Pkgconfig
-LibPNG
+# mandatory
+LibCap
+MPC
+Zstd
+
+# Pixman
+#LibPNG
 PIP3:Meson

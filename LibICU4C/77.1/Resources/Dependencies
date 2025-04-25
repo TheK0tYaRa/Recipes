@@ -1,1 +1,7 @@
-GCC >= 3.4.5
+# mandatory
+LibCap
+MPC
+Zstd
+
+# LibICU4C
+Flex

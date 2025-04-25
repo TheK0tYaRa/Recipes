@@ -1,2 +1,11 @@
-GObject-Introspection
-Vala
+# mandatory
+LibCap
+MPC
+Zstd
+
+#PIP3:meson
+Meson
+GObject-Introspection [introspection]
+Curl [duktape]
+Duktape [duktape]
+Vala [vala]

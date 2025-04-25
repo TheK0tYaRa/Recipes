@@ -1,6 +1,15 @@
+# mandatory
+LibCap
+MPC
+Zstd
+
+# Git
+Flex
+Gettext
+
 DocBook-XSL-Stylesheets
 XMLTO >= 0.0.20
 PIP3:asciidoc >= 9.0.4
 DocBook-XML-DTD >= 4.5
 LibXSLT >= 1.1.22
-PCRE2
+

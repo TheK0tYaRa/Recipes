@@ -1,0 +1,7 @@
+# Recipe for version 0.18.0 by TheK0tYaRa < thek0tyara.alod123@gmail.com >, on Wed 16 Apr 2025 12:49:18 PM EEST
+# Recipe (MakeRecipe) for PatchELF by Lucas C. Villa Real, on Mon Sep 26 23:27:33 BRT 2011
+compile_version=017-GIT
+url="https://github.com/NixOS/patchelf/releases/download/0.18.0/patchelf-0.18.0.tar.gz"
+file_size=455301
+file_md5=b02099b0d63f06b3fe370f4edfc0c085
+recipe_type=configure

@@ -1,0 +1,32 @@
+# Recipe for version 2.4.124 by TheK0tYaRa < thek0tyara.alod123@gmail.com >, on Tue 22 Apr 2025 09:21:58 PM EEST
+# Recipe (MakeRecipe) for LibDRM by Lucas Correia Villa Real <lucasvr@gobolinux.org>, on Mon Jan 9 17:56:36 BRST 2.4.1246
+compile_version=017-GIT
+url="https://dri.freedesktop.org/libdrm/libdrm-2.4.124.tar.xz"
+file_size=481244
+file_md5=78f7f7ee6aff711696d4b34465b40728
+recipe_type=meson
+symlink_options=(--conflict=overwrite)
+meson_variables=(
+  --buildtype=release
+
+  -Dintel=auto
+  -Dradeon=auto
+  -Damdgpu=auto
+  -Dnouveau=auto
+  -Dvmwgfx=auto
+  -Domap=auto
+  -Dexynos=auto
+  -Dfreedreno=auto
+  -Dtegra=auto
+  -Dvc4=auto
+  -Detnaviv=auto
+
+  -Dcairo-tests=auto
+  -Dman-pages=auto
+  -Dvalgrind=auto
+  -Dfreedreno-kgsl=false
+  -Dinstall-test-programs=false
+  -Dudev=true
+  -Dtests=false
+)
+using_test() { meson_variables+=("-Dtests=true"); }

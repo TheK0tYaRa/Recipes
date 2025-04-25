@@ -1,0 +1,25 @@
+# Recipe for version 2.49.0 by TheK0tYaRa < thek0tyara.alod123@gmail.com >, on Sat 19 Apr 2025 12:13:15 AM EEST
+# Recipe (MakeRecipe) for Git by Jonas Karlsson <jonka750@student.liu.se>, on Sat Apr 15 18:45:06 CEST 2006
+compile_version=017-GIT
+url="http://mirrors.edge.kernel.org/pub/software/scm/git/git-2.49.0.tar.xz"
+file_size=7771796
+file_md5=7e607007a44de52cccda06040fe9362c
+recipe_type=makefile
+makefile='Makefile'
+build_target="all" #man"
+install_target="install" #install-man"
+
+environment=(
+   XML_CATALOG_FILES="$goboShared/xml/docbook/stylesheet/catalog.xml $goboVariable/lib/xml/catalog $goboVariable/lib/xml/docbook"
+)
+make_variables=(
+   prefix="$target"
+   PREFIX="$target"
+   ASCIIDOC8="YesPlease"
+   USE_LIBPCRE2=1
+   sysconfdir=$settings_target
+)
+
+pre_link() {
+   cp -a Documentation/* $target/doc
+}

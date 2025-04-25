@@ -1,0 +1,27 @@
+LibCap
+GCC [gcc]
+MPC [gcc]
+Zstd [gcc]
+LLVM [clang]
+LibICU4C [clang]
+PIP3:Meson
+Meson
+Ninja >= 1.8.2
+
+Xorg-Lib
+
+XF86-Video-Intel [intel]
+XF86-Video-AMD [radeon]
+XF86-Video-AMDGPU [amdgpu]
+XF86-Video-Nouveau [nouveau]
+XF86-Video-VMware [vmwgfx]
+XF86-Video-Omap [omap]
+XF86-Video-Freedreno [freedreno]
+#[freedreon-kgsl]
+#XF86-Video-TGA [tegra]
+#[etnaviv]
+#[exynos]
+#[vc4]
+
+OpenSSL [cmake]
+[test]

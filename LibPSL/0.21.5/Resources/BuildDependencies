@@ -1,0 +1,10 @@
+LibCap
+GCC [gcc]
+MPC [gcc]
+Zstd [gcc]
+LLVM [clang]
+LibICU4C [clang]
+
+PIP3:Meson
+Meson
+Ninja >= 1.8.2

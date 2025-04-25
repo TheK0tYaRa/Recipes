@@ -1,1 +1,2 @@
-Glibc 2.24
+Yasm >= 1.3.0 | Nasm >= 2.16.03
+# for building the package with optimized assembly routine

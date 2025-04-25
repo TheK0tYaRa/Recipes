@@ -1,1 +1,6 @@
-Glibc 2.7
+Cython [cython]
+Python >= 3.0.0 [python] | Python >= 2.0.0, < 3.0.0 [python2]
+
+#XMLTO
+#Gettext
+#LibBSD

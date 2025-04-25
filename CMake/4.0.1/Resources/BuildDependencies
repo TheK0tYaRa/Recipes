@@ -1,8 +1,24 @@
-#GCC
-#ZLib
-#Bzip2
-#Expat
-Curl >= 8.13.0
-LibArchive >= 3.7.9
-LibUV >= 1.50.0
+LibCap
+GCC [gcc]
+GCC [gfortran]
+MPC [gcc]
+LLVM [clang]
+LibICU4C [clang]
+
 NGHTTP2 >= 1.65.0
+LibUV >= 1.50.0
+
+CMake [cmake]
+
+LibArchive >= 3.7.9 [libarchive]
+CppDAP [cppdap]
+Curl >= 8.13.0 [curl]
+Expat [expat]
+ZLib [zlib]
+Bzip2 [bzip2]
+Zstd [zstd]
+LZMA-Utils [lzma]
+#Editform [form]
+JsonCpp [jsoncpp]
+#[libhash]
+#[kwiml]

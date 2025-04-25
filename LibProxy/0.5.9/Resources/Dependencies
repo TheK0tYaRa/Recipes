@@ -1,4 +1,2 @@
-GCC
-GLib
-GObject-Introspection
-GSettings-Desktop-Schemas
+#GLib
+#GSettings-Desktop-Schemas

@@ -1,0 +1,17 @@
+# Recipe for version 3.4.1 by TheK0tYaRa < thek0tyara.alod123@gmail.com >, on Fri 25 Apr 2025 08:16:04 PM EEST
+compile_version=017-GIT
+# by Andre Detsch
+# 2004.01.06 16:59
+url='http://rsync.samba.org/ftp/rsync/src/rsync-3.4.1.tar.gz'
+file_size=1172739
+file_md5=04ce67866db04fd7a1cde0b78168406e
+recipe_type=configure
+
+configure_options=(
+  "--prefix=${target}"
+  "--disable-xxhash"
+  "--disable-openssl"
+  "--without-included-zlib"
+)
+with_xxhash="--enable-xxhash"
+with_openssl="--enable-openssl"

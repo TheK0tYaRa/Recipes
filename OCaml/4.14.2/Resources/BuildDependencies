@@ -1,0 +1,6 @@
+LibCap
+GCC [gcc]
+MPC [gcc]
+Zstd [gcc]
+LLVM [clang]
+LibICU4C [clang]

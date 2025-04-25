@@ -1,0 +1,68 @@
+# Recipe for version 4.0.1 by TheK0tYaRa < thek0tyara.alod123@gmail.com >, on Wed 16 Apr 2025 05:54:36 AM EEST
+compile_version=017-GIT
+url="https://cmake.org/files/v4.0/cmake-4.0.1.tar.gz"
+file_size=11826844
+file_md5=534b4af60e0b4b3fa43199d75d2debef
+recipe_type=configure
+using_cmake() {
+  recipe_type=cmake
+}
+pre_build() {
+  using_cmake
+}
+configure=bootstrap
+
+configure_variables=(
+#do_configuration() { #TODO
+#  ./bootstrap  \
+  --prefix=$target
+  --parallel=$(/usr/bin/getconf _NPROCESSORS_ONLN)
+  --docdir=$target/doc/cmake-4.0.1
+  --system-libs
+  --no-system-jsoncpp
+  --no-system-cppdap
+  --no-system-librhash
+  --no-system-libarchive
+  --no-system-bzip2
+  --no-system-curl
+  -- -DCMake_TEST_Qt5=OFF
+#}
+)
+
+cmake_variables=(
+  -DCMAKE_USE_SYSTEM_LIBARCHIVE=NO
+  -DCMAKE_USE_SYSTEM_CPPDAP=NO
+  -DCMAKE_USE_SYSTEM_CURL=NO
+  -DCMAKE_USE_SYSTEM_EXPAT=NO
+  -DCMAKE_USE_SYSTEM_ZLIB=NO
+  -DCMAKE_USE_SYSTEM_BZIP2=NO
+  -DCMAKE_USE_SYSTEM_ZSTD=NO
+  -DCMAKE_USE_SYSTEM_LIBLZMA=NO
+  -DCMAKE_USE_SYSTEM_NGHTTP2=NO
+  -DCMAKE_USE_SYSTEM_FORM=NO
+  -DCMAKE_USE_SYSTEM_JSONCPP=NO
+  -DCMAKE_USE_SYSTEM_LIBRHASH=NO
+  -DCMAKE_USE_SYSTEM_LIBUV=NO
+  -DCMAKE_USE_SYSTEM_KWIML=NO
+  ${cmake_variables[@]}
+)
+using_libarchive() { cmake_variables+=("$cmake_variables -DCMAKE_USE_SYSTEM_LIBARCHIVE=YES"); }
+using_cppdap()	{ cmake_variables+=("$cmake_variables -DCMAKE_USE_SYSTEM_CPPDAP=YES"); }
+using_curl()	{ cmake_variables+=("$cmake_variables -DCMAKE_USE_SYSTEM_CURL=YES"); }
+using_expat()	{ cmake_variables+=("$cmake_variables -DCMAKE_USE_SYSTEM_EXPAT=YES"); }
+using_zlib()	{ cmake_variables+=("$cmake_variables -DCMAKE_USE_SYSTEM_ZLIB=YES"); }
+using_bzip2()	{ cmake_variables+=("$cmake_variables -DCMAKE_USE_SYSTEM_BZIP2=YES"); }
+using_zstd()	{ cmake_variables+=("$cmake_variables -DCMAKE_USE_SYSTEM_ZSTD=YES"); }
+using_lzma()	{ cmake_variables+=("$cmake_variables -DCMAKE_USE_SYSTEM_LIBLZMA=YES"); }
+using_nghttp2()	{ cmake_variables+=("$cmake_variables -DCMAKE_USE_SYSTEM_NGHTTP2=YES"); }
+using_form()	{ cmake_variables+=("$cmake_variables -DCMAKE_USE_SYSTEM_FORM=YES"); }
+using_jsoncpp()	{ cmake_variables+=("$cmake_variables -DCMAKE_USE_SYSTEM_JSONCPP=YES"); }
+using_libhash()	{ cmake_variables+=("$cmake_variables -DCMAKE_USE_SYSTEM_LIBRHASH=YES"); }
+using_libuv()	{ cmake_variables+=("$cmake_variables -DCMAKE_USE_SYSTEM_LIBUV=YES"); }
+using_kwiml()	{ cmake_variables+=("$cmake_variables -DCMAKE_USE_SYSTEM_KWIML=YES"); }
+
+pre_install() {
+    if [ ! -z "$goboIndex" -a -d "$goboIndex" ];then
+        GrepReplace "$goboIndex" "$target" cmake_install.cmake
+    fi
+}

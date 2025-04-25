@@ -1,11 +1,7 @@
-FreeTDS #TODO
-MariaDB >= 11.4.5 [mariadb]
-OpenLDAP >= 2.6.9 [openldap]
-PostgreSQL >= 17.4 [postgres]
-SQLite >= 3.49.1 [sqlite]
-UnixODBC >= 2.3.12
-
-
-Expat 1.95.8
+#FreeTDS #TODO
+MariaDB >= 11.4.5 [mariadb] # or mysql
 MySQL [mysql]
-DB [db]
+PostgreSQL >= 17.4 [postgresql]
+SQLite >= 3.49.1 [sqlite]
+UnixODBC >= 2.3.12 [unixodbc]
+DB [db] # deprecated tho

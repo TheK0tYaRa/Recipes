@@ -1,3 +1,10 @@
+# mandatory
+LibCap
+MPC
+Zstd
+
+# Xorg-Server
+PIP3:meson >= 0.47.0
 #LibTool
 #Pkgconfig
 #LibPthread-Stubs 0.4

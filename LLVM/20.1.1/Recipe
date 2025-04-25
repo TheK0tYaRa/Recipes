@@ -1,0 +1,104 @@
+# Recipe for version 20.1.1 by TheK0tYaRa < thek0tyara.alod123@gmail.com >, on Mon 21 Apr 2025 07:43:55 PM EEST
+# Recipe (MakeRecipe) for LLVM by Ivan Florentin <ivanflorentin@gmail.com>, on Fri Dec 23 10:55:21 PYST 2016
+compile_version=017-GIT
+urls=(
+	https://github.com/llvm/llvm-project/releases/download/llvmorg-20.1.1/llvm-20.1.1.src.tar.xz
+
+    # additional
+	https://anduin.linuxfromscratch.org/BLFS/llvm/llvm-cmake-20.1.1.src.tar.xz
+    https://anduin.linuxfromscratch.org/BLFS/llvm/llvm-third-party-20.1.1.src.tar.xz
+
+    # recommended
+    https://github.com/llvm/llvm-project/releases/download/llvmorg-20.1.1/clang-20.1.1.src.tar.xz
+
+    # optional
+    https://github.com/llvm/llvm-project/releases/download/llvmorg-20.1.1/compiler-rt-20.1.1.src.tar.xz
+)
+dir="llvm-20.1.1.src"
+recipe_type=cmake
+
+pre_build() {
+    [ -e .lazy ]&& echo Lazy, are we? ; return 0
+    cd ..
+    # llvm
+    sed '/LLVM_COMMON_CMAKE_UTILS/s@../cmake@..\/cmake-20.1.1.src@' \
+        -i CMakeLists.txt
+    sed '/LLVM_THIRD_PARTY_DIR/s@../third-party@..\/third-party-20.1.1.src@' \
+        -i cmake/modules/HandleLLVMOptions.cmake
+
+    # script fix
+    grep -rl '#!.*python' | xargs sed -i '1s/python$/python3/' || echo "Everything is already python3"
+
+    # clang
+    mv ../clang-20.1.1.src tools/clang
+
+    # compiler-rt
+    mv ../compiler-rt-20.1.1.src projects/compiler-rt
+
+    # tests
+    sed 's/utility/tool/' -i utils/FileCheck/CMakeLists.txt
+    #with compiler-rt?
+    sed -e 's/config.has_no_default_config_flag/True/' \
+        -i projects/compiler-rt/test/lit.common.cfg.py
+    cd _build
+    touch .lazy
+}
+
+cmake_options=(
+    # cmake
+    -D CMAKE_INSTALL_PREFIX=$goboIndex
+    -D CMAKE_SKIP_INSTALL_RPATH=ON
+    -D CMAKE_BUILD_TYPE=Release
+    
+    # sphinx
+#    -D SPHINX_WARNINGS_AS_ERRORS=OFF
+
+    # includes
+    -D FFI_INCLUDE_DIR=$(pkg-config --variable=includedir libffi)
+
+    # llvm
+    -D LLVM_ENABLE_FFI=ON
+    -D LLVM_BUILD_LLVM_DYLIB=ON
+    -D LLVM_LINK_LLVM_DYLIB=ON
+    -D LLVM_ENABLE_RTTI=ON
+    -D LLVM_TARGETS_TO_BUILD="host;AMDGPU;BPF"
+    -D LLVM_BINUTILS_INCDIR=$goboIndex/include
+    -D LLVM_INCLUDE_BENCHMARKS=OFF
+    -D LLVM_INSTALL_UTILS=ON
+    -D LLVM_INCLUDE_TESTS=OFF
+    -D LLVM_BUILD_DOCS=OFF
+    -D LLVM_ENABLE_DOXYGEN=OFF
+
+    # clang
+    -D CLANG_DEFAULT_PIE_ON_LINUX=ON
+    -D CLANG_CONFIG_FILE_SYSTEM_DIR=$goboSettings/clang
+
+    # globals
+    -W no-dev
+#    -G Ninja
+#    -D PYTHON_EXECUTABLE=$goboExecutables/python3
+)
+
+pre_install() {
+    # tests
+    sh -c 'ulimit -c 0 && ninja check-all'
+
+    mkdir -pv /etc/clang &&
+    for i in clang clang++; do
+        echo -fstack-protector-strong > /etc/clang/$i.cfg
+    done
+}
+file_sizes=(
+72697652
+8648
+454468
+23761580
+2604392
+)
+file_md5s=(
+4dded37d4e2a030793de925ed6894eb6
+10dd36ab16d9e022fc8fd0e0a61f0dbc
+a3ba9494f84ac5e2bebd02a3cea31b6d
+739e2a7a7fc7cca0767340be32f07754
+6e04c453ff3df173112e290e53580c2b
+)

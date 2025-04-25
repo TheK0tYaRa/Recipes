@@ -1,0 +1,20 @@
+# Recipe for version 1.6.47 by TheK0tYaRa < thek0tyara.alod123@gmail.com >, on Sun 20 Apr 2025 04:59:22 PM EEST
+compile_version=017-GIT
+url="https://downloads.sourceforge.net/libpng/libpng-1.6.47.tar.xz"
+#size
+#md5sum
+recipe_type=configure
+
+configure_variables=(
+    --prefix=$target
+    --disable-static
+)
+
+pre_install() {
+    make check
+}
+
+#pre_link() {
+#    ln -sf libpng16 $target/include/libpng
+#    ln -sf libpng.so $target/lib/libpng.so.0
+#}

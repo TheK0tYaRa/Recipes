@@ -1,0 +1,12 @@
+# Recipe for version 3.0.1 by TheK0tYaRa < thek0tyara.alod123@gmail.com >, on Tue 22 Apr 2025 12:33:53 AM EEST
+# Recipe (MakeRecipe) for LibJPEG-Turbo by Lucas C. Villa Real <lucasvr@gobolinux.org>, on Fri Sep 23 14:51:21 GMT 2016
+compile_version=017-GIT
+url="https://github.com/libjpeg-turbo/libjpeg-turbo/releases/download/3.0.1/libjpeg-turbo-3.0.1.tar.gz"
+file_size=2800900
+file_md5=1fdc6494521a8724f5f7cf39b0f6aff3
+dir='libjpeg-turbo-3.0.1'
+recipe_type=cmake
+cmake_options=(
+	-DCMAKE_BUILD_TYPE=RELEASE
+	-DENABLE_STATIC=FALSE
+)

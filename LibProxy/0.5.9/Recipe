@@ -8,7 +8,65 @@ file_md5=11fd35c17e0ae017bae764fae1651973
 recipe_type=meson
 
 meson_variables=(
-	-D release=true
-	-D docs=false
-	-D pacrunner-duktape=false
+    --prefix=$target
+    -Drelease=true
+    -Ddocs=false
+    -Dpacrunner-duktape=false
+
+    -Dconfig-windows=false
+    -Dconfig-osx=false
+
+    -Dvapi=false
+    -Dcurl=false
+    -Dintrospection=false
+
+    -Dconfig-gnome=false
+#    -Dconfig-kde=false
+#    -Dconfig-xdp=false
 )
+with_gnome="-Dconfig-gnome=true"
+#with_kde="-Dconfig-kde=true"
+#with_xdp="-Dconfig-xdp=true"
+
+with_duktape="-Dcurl=true -Dpacrunner-duktape=true"
+with_introspection="-Dintrospection=true"
+with_vala="-Dvapi=true"
+
+pre_build() {
+    if [[ "$(which ccache)" != "" ]];then
+        echo "Ccache breaks the build, try building with CC set"
+#        exit -1
+    fi
+}
+do_install=no
+pre_install() {
+#    ninja install
+#    tree $target
+    # prepare
+    rm -rf $target/{doc,info,libexec,Resources,share/man}
+
+    # lib
+    install -d $target/lib/libproxy
+    install src/backend/libpxbackend-1.0.so $target/lib/libproxy
+    install src/libproxy/libproxy.so.0.5.9 $target/lib
+    ln -s libproxy.so.0.5.9 $target/lib/libproxy.so.1
+    ln -s libproxy.so.1 $target/lib/libproxy.so
+
+    # bin
+    install src/tools/proxy $target/bin
+
+    # headers
+    install -d $target/include/libproxy
+    install ../src/libproxy/proxy.h $target/include/libproxy
+
+    # docs
+    install -d $target/share/man/man8
+    install ../src/tools/proxy.8 $target/share/man/man8
+
+    # pkgconf
+    install -d $target/lib/pkgconfig
+    install meson-private/libproxy-1.0.pc $target/lib/pkgconfig
+
+    #
+#    tree $target
+}

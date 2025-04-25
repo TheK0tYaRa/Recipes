@@ -1,0 +1,12 @@
+LibCap
+GCC [gcc]
+MPC [gcc]
+Zstd [gcc]
+LLVM [clang]
+LibICU4C [clang]
+
+Popt >= 1.19
+
+Doxygen >= 1.13.2 [doc]
+XXHash [xxhash]
+OpenSSL [openssl]
