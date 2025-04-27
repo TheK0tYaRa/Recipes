@@ -1,0 +1,12 @@
+[Summary]
+An advanced compiler accelerator.
+
+[License]
+GNU General Public License (GPL)
+
+[Description]
+BuildCache is an advanced compiler accelerator that caches and reuses build results to avoid unnecessary re-compilations, and thereby speeding up the build process.
+It is similar in spirit to ccache, sccache and clcache.
+
+[Homepage]
+https://gitlab.com/bits-n-bites/buildcache/

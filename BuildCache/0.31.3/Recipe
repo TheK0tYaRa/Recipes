@@ -1,0 +1,19 @@
+# Recipe (MakeRecipe) for BuildCache by TheK0tYaRa < thek0tyara.alod123@gmail.com >, on Sun 27 Apr 2025 08:28:05 AM EEST
+# Recipe for version 0.31.3 by TheK0tYaRa < thek0tyara.alod123@gmail.com >, on Sun 27 Apr 2025 08:28:05 AM EEST
+compile_version=017-GIT
+url="https://gitlab.com/bits-n-bites/buildcache/-/archive/v0.31.3/buildcache-v0.31.3.tar.gz"
+file_sha=73356aaf4c55987d5c32e1b65b3f1036d00cea10
+sourcedir="${dir}/src"
+recipe_type=cmake
+
+pre_build() {
+  ccache --version
+  clang --version
+  ccache $CC
+  echo 'int main(){}' | ccache $CC -x c -o /dev/null -
+}
+
+cmake_options=(
+  -DCMAKE_BUILD_TYPE=Release
+)
+

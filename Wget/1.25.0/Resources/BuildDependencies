@@ -10,9 +10,9 @@ LibPSL >= 0.21.5
 
 OpenSSL [openssl]
 
-#GnuTLS >= 3.8.9 [gnutls]
-#HTTP-Daemon >= 6.16 [test]
-#IO-Socket-SSL >= 2.089 [test]
-#libidn2 >= 2.3.8 [libidn2]
-#pcre2 >= 10.45 [pcre2]
-#Valgrind >= 3.24.0 [test]
+GnuTLS >= 3.8.9 [gnutls]
+HTTP-Daemon >= 6.16 [test]
+IO-Socket-SSL >= 2.089 [test]
+LibIDN2 >= 2.3.8 [libidn2]
+PCRE2 >= 10.45 [pcre2]
+Valgrind >= 3.24.0 [test]

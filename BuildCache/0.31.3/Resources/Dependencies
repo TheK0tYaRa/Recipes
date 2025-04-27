@@ -1,0 +1,12 @@
+LibCap
+GCC [gcc]
+MPC [gcc]
+Zstd [gcc]
+LLVM [clang]
+LibICU4C [clang]
+LibFFI [clang]
+CCache [ccache]
+
+CMake
+LibIDN2
+OpenSSL
