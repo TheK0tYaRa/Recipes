@@ -1,23 +1,53 @@
 # Recipe for version 20.1.1 by TheK0tYaRa < thek0tyara.alod123@gmail.com >, on Mon 21 Apr 2025 07:43:55 PM EEST
 # Recipe (MakeRecipe) for LLVM by Ivan Florentin <ivanflorentin@gmail.com>, on Fri Dec 23 10:55:21 PYST 2016
 compile_version=017-GIT
-urls=(
-	https://github.com/llvm/llvm-project/releases/download/llvmorg-20.1.1/llvm-20.1.1.src.tar.xz
 
-    # additional
-	https://anduin.linuxfromscratch.org/BLFS/llvm/llvm-cmake-20.1.1.src.tar.xz
-    https://anduin.linuxfromscratch.org/BLFS/llvm/llvm-third-party-20.1.1.src.tar.xz
+#git="https://github.com/llvm/llvm-project" # git is fuckin broken god dammit
+#tag="llvmorg-20.1.1"
 
-    # recommended
-    https://github.com/llvm/llvm-project/releases/download/llvmorg-20.1.1/clang-20.1.1.src.tar.xz
+#urls=(
+#  https://github.com/llvm/llvm-project/releases/download/llvmorg-20.1.1/llvm-20.1.1.src.tar.xz
+#  https://anduin.linuxfromscratch.org/BLFS/llvm/llvm-cmake-20.1.1.src.tar.xz
+#  https://anduin.linuxfromscratch.org/BLFS/llvm/llvm-third-party-20.1.1.src.tar.xz
+#  https://github.com/llvm/llvm-project/releases/download/llvmorg-20.1.1/clang-20.1.1.src.tar.xz
+#  https://github.com/llvm/llvm-project/releases/download/llvmorg-20.1.1/compiler-rt-20.1.1.src.tar.xz
+#)
+#file_shas=(
+#  42b8a34a1d2688d32afbddf0a131cc872d91983f
+#  c2991a540d8828abb5d888ba621ecf75a838fc61
+#  d29dac0c2734ad2c8e9f2ac9140818cdbb6541fd
+#  c0f8c1dbec576c4cba50ebe76642f9178d0fe808
+#  d04626d8a7c621108bd85242d6203f24dc2ef218
+#)
 
-    # optional
-    https://github.com/llvm/llvm-project/releases/download/llvmorg-20.1.1/compiler-rt-20.1.1.src.tar.xz
-)
-dir="llvm-20.1.1.src"
+url="https://github.com/llvm/llvm-project/releases/download/llvmorg-20.1.1/llvm-project-20.1.1.src.tar.xz"
+file_sha=1d6723d8abd5a8db8f2df88c5613b591fa453c5d
+create_dirs_first=yes
+dir="llvm-project-20.1.1.src"
 recipe_type=cmake
 
 pre_build() {
+    echo "Testing every tool before compilation to avoid issues later..."
+    for tool in {CC,CXX,LD,ADDR2LINE,AR,AS,NM,OBJCOPY,OBJDUMP,RANLIB,READELF,STRINGS,STRIP}
+    do
+      if [ "$(command -v $(eval echo \$$tool))" == "" ]
+      then
+        $(eval echo \$$tool)
+	exit -1
+      fi
+    done
+    echo "All tools functional!"
+
+    # -Wconstant-logical-operand in .inc
+    w_no_clo="-Wno-constant-logical-operand"
+    export CC="$CC $w_no_clo"
+    export CXX="$CXX $w_no_clo"
+    export CFLAGS="$CFLAGS $w_no_clo"
+    export CXXFLAGS="$CXXFLAGS $w_no_clo"
+    # cache dir
+    CCACHE_DIR="$CCACHE_DIR/../LLVM/20.1.1/"
+    BUILDCACHE_DIR="$BUILDCACHE_DIR/../LLVM/20.1.1/"
+    ###
     [ -e .lazy ]&& echo Lazy, are we? ; return 0
     cd ..
     # llvm
@@ -33,22 +63,39 @@ pre_build() {
     mv ../clang-20.1.1.src tools/clang
 
     # compiler-rt
-    mv ../compiler-rt-20.1.1.src projects/compiler-rt
+    mv ../compiler-rt-20.1.1.src runtimes/compiler-rt
 
     # tests
     sed 's/utility/tool/' -i utils/FileCheck/CMakeLists.txt
     #with compiler-rt?
     sed -e 's/config.has_no_default_config_flag/True/' \
         -i projects/compiler-rt/test/lit.common.cfg.py
+    ###
     cd _build
     touch .lazy
 }
+ninja="ninja"
+
+llvm_projects=(clang-tools-extra lld clang)
+using_bolt() { llvm_targets+=(bolt); }
+#using_clang() { llvm_targets+=(clang); }
+#using_clang-tools-extra() { llvm_targets+=(clang-tools-extra); }
+using_libclc() { llvm_targets+=(libclc); }
+#using_lld() { llvm_targets+=(lld); }
+using_openmp() { llvm_targets+=(openmp); }
+using_polly() { llvm_targets+=(polly); }
+#llvm_projects+=(clang-tools-extra lld clang)
+
+llvm_runtimes=(compiler-rt openmp offload)
+#llvm_runtimes+=(compiler-rt openmp offload) # libc;libunwind;libcxxabi;pstl;libcxx;compiler-rt;openmp;llvm-libgcc;offload
 
 cmake_options=(
     # cmake
+    ${CC_VARS[*]}
     -D CMAKE_INSTALL_PREFIX=$goboIndex
     -D CMAKE_SKIP_INSTALL_RPATH=ON
     -D CMAKE_BUILD_TYPE=Release
+    -D CMAKE_MAKE_PROGRAM=$ninja
     
     # sphinx
 #    -D SPHINX_WARNINGS_AS_ERRORS=OFF
@@ -57,7 +104,7 @@ cmake_options=(
     -D FFI_INCLUDE_DIR=$(pkg-config --variable=includedir libffi)
 
     # llvm
-    -D LLVM_ENABLE_FFI=ON
+    -D LLVM_ENABLE_FFI=OFF
     -D LLVM_BUILD_LLVM_DYLIB=ON
     -D LLVM_LINK_LLVM_DYLIB=ON
     -D LLVM_ENABLE_RTTI=ON
@@ -69,16 +116,38 @@ cmake_options=(
     -D LLVM_BUILD_DOCS=OFF
     -D LLVM_ENABLE_DOXYGEN=OFF
 
+    -D LLVM_ENABLE_PROJECTS="$(IFS=';'; echo "${llvm_projects[*]}")"
+    -D LLVM_ENABLE_RUNTIMES="$(IFS=';'; echo "${llvm_runtimes[*]}")"
+    #TODO: make that use-controlled
+
     # clang
-    -D CLANG_DEFAULT_PIE_ON_LINUX=ON
-    -D CLANG_CONFIG_FILE_SYSTEM_DIR=$goboSettings/clang
+#    -D CLANG_DEFAULT_PIE_ON_LINUX=ON
+#    -D CLANG_CONFIG_FILE_SYSTEM_DIR=$goboSettings/clang
+
+    # lld
+    -D LLVM_USE_LINKER=lld
 
     # globals
-    -W no-dev
-#    -G Ninja
-#    -D PYTHON_EXECUTABLE=$goboExecutables/python3
-)
+    -G Ninja
+    -D Python3_EXECUTABLE=$goboExecutables/python3
 
+    # warns
+    -Wno-dev
+    -Wno-gnu-line-marker
+    -Wno-unused-command-line-argument
+    -Wno-constant-logical-operand
+    -Wno-parentheses-equality
+    -Wno-unused-variable
+    -Wno-tautological-compare
+)
+using_libffi() { cmake_options+=(-D LLVM_ENABLE_FFI=ON); }
+
+cmake_do_configuration() {
+  cmake -S ../llvm ${cmake_options[*]}
+}
+cmake_do_build() {
+  $ninja || wrap_fail "Build failed."
+}
 pre_install() {
     # tests
     sh -c 'ulimit -c 0 && ninja check-all'
@@ -88,17 +157,6 @@ pre_install() {
         echo -fstack-protector-strong > /etc/clang/$i.cfg
     done
 }
-file_sizes=(
-72697652
-8648
-454468
-23761580
-2604392
-)
-file_md5s=(
-4dded37d4e2a030793de925ed6894eb6
-10dd36ab16d9e022fc8fd0e0a61f0dbc
-a3ba9494f84ac5e2bebd02a3cea31b6d
-739e2a7a7fc7cca0767340be32f07754
-6e04c453ff3df173112e290e53580c2b
-)
+cmake_do_install() {
+  SandboxInstall $verbose ${unmanagedlist:+--unmanaged-files "${unmanagedlist}"} ${sandboxopts:+"${sandboxopts[@]}"} -c "$ninja install" "$appname" "$versionnumber" -- "${ninja_variables[@]}" "${install_variables[@]}" $install_target || wrap_fail "Installation failed"
+}

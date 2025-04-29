@@ -1,8 +1,1 @@
-# mandatory
-LibCap
-MPC
-Zstd
-
-# LLVM
-CMake >= 3.31.5
 

@@ -1,0 +1,37 @@
+LibCap
+LibPSL
+GCC [gcc]
+MPC [gcc]
+Zstd #[gcc]
+LLVM [clang]
+LibICU4C [clang]
+
+BuildCache | CCache [cache]
+#CCache [ccache]
+
+Git
+NGHTTP2
+OpenLDAP 2.4.49
+
+# TODO: remove this after merged:
+LLD [lld]
+
+CMake >= 4.0.1
+Ninja
+
+LibFFI [libffi]
+Doxygen >= 1.13.2 [doc]
+Git >= 2.49.0
+Graphviz >= 12.2.1 [doc]
+LibXML2 >= 2.14.2
+PSUtil >= 7.0.0 [test] [doc]
+PIP3:Pygments >= 2.19.1
+PIP3:PyYAML >= 6.0.2 [test]
+Rsync >= 3.4.1 [test]
+#Sphinx >= 8.2.3 [doc]
+#Texlive >= 20250308 #(or install-tl-unx)
+Valgrind >= 3.24.0 [test] [valgrind]
+Zip = 3.0
+Myst-Parser [doc]
+OCaml [doc] [ocaml]
+Z3 [test]
