@@ -14,5 +14,7 @@ LibFFI [clang]
 
 BuildCache | CCache [cache]
 
-Meson
-Ninja
+CMake >= 4.0.1
+Ninja [ninja]
+
+SPIRV-Headers = 1.4.309.0

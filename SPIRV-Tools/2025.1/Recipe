@@ -1,0 +1,21 @@
+# Recipe for version 2025.1 by TheK0tYaRa < thek0tyara.alod123@gmail.com >, on Wed 30 Apr 2025 06:32:43 PM EEST
+# Recipe (MakeRecipe) for SPIRV-Tools by Nuc1eoN, on Sun 13 Feb 2022 05:49:41 AM CET
+compile_version=017-GIT
+url="https://github.com/KhronosGroup/SPIRV-Tools/archive/refs/tags/v2025.1.tar.gz"
+file_size=3242384
+file_md5=b4f5efb7ae1ef8c0609176c058c86c83
+file="SPIRV-Tools-2025.1.tar.gz"
+dir='SPIRV-Tools-2025.1'
+recipe_type=cmake
+cmake_options=(
+   -DCMAKE_BUILD_TYPE=Release
+   -DCMAKE_INSTALL_PREFIX=$target
+   -DCMAKE_INSTALL_LIBDIR=$target/lib
+   -DSPIRV_WERROR=OFF
+   -DSPIRV_TOOLS_BUILD_STATIC=OFF
+   -DBUILD_SHARED_LIBS=ON
+   -DSPIRV-Headers_SOURCE_DIR="/usr"
+   -DCMAKE_SKIP_RPATH=ON
+#   -DCMAKE_POSITION_INDEPENDENT_CODE=ON
+)
+with_ninja="-G Ninja"

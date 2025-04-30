@@ -1,2 +1,15 @@
-Autoconf
-Python
+# wget
+LibIDN2
+LibPSL
+# ls
+LibCap
+
+GCC [gcc]
+MPC [gcc]
+Flex [gcc]
+Zstd
+LLVM [clang]
+LibICU4C [clang]
+LibFFI [clang]
+
+BuildCache | CCache [cache]

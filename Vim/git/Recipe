@@ -14,16 +14,14 @@ configure_options=(
    --datadir="$target/share"
    --mandir="$target/share/man"
 )
-with_perl=(
-   --enable-perlinterp
-)
-with_python=(
-   --enable-pythoninterp
-)
+with_perl="--enable-perlinterp"
+with_python2="--enable-pythoninterp"
+with_python="--enable-python3interp"
 
 with_gtk2="--enable-gui=gtk2"
 with_gtk3="--enable-gui=gtk3"
 
+
 pre_link() {
-	ln -s vim $target/bin/vi
+  ln -s vim $target/bin/vi
 }

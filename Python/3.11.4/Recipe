@@ -1,0 +1,26 @@
+# Recipe for version 3.11.4 by TheK0tYaRa < thek0tyara.alod123@gmail.com >, on Wed 16 Apr 2025 04:39:09 AM EEST
+compile_version=017-GIT
+url="https://www.python.org/ftp/python/3.11.4/Python-3.11.4.tar.xz"
+file_size=19954828
+file_md5=fb7f7eae520285788449d569e45b6718
+recipe_type=configure
+needs_safe_linking=yes
+
+configure_options=(
+  "--enable-shared"
+  "--enable-loadable-sqlite-extensions"
+#  "--with-cxx=no"
+  --enable-optimizations
+  --with-lto
+)
+
+pre_build() {
+   # Make sure that the /S/Aliens patch file is sane.
+   patchfile="${recipedir}/01-search-SLL.patch.in"
+   declared_minor=$(grep "+PYTHON_MINOR" "$patchfile" | awk {'print $3'})
+   recipe_minor=$(echo "$version" | cut -d. -f2)
+   if [ "$declared_minor" != "$recipe_minor" ]
+   then
+      Die "Please update PYTHON_MINOR in $patchfile"
+   fi
+}

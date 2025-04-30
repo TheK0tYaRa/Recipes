@@ -9,3 +9,13 @@ recipe_type=meson
 meson_variables=(
 	-Dgles1=false
 )
+uses_xorg="-Dx11=true"
+#uses_egl="-Degl=true"
+uses_glx="-Dglx=true"
+#uses_hgl="-Dhgl=true"
+uses_gles1="-Dgles1=true"
+#uses_gles2="-Dgles2=true"
+#uses_tls="-Dtls=true"
+#uses_dispatch_tls="-Ddispatch-tls=true"
+#uses_headers="-Dheaders=true"
+uses_entrypoint_patching="-Dentrypoint-patching=true"

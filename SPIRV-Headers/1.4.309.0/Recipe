@@ -1,0 +1,9 @@
+# Recipe for version 1.4.309.0 by TheK0tYaRa < thek0tyara.alod123@gmail.com >, on Wed 30 Apr 2025 06:40:50 PM EEST
+# Recipe (MakeRecipe) for SPIRV-Headers by Nuc1eoN, on Sun 13 Feb 2022 05:47:33 AM CET
+compile_version=017-GIT
+url="https://github.com/KhronosGroup/SPIRV-Headers/archive/refs/tags/vulkan-sdk-1.4.309.0.tar.gz"
+file_size=543165
+file_md5=082696d927958135324ad5e5afdac480
+dir='SPIRV-Headers-vulkan-sdk-1.4.309.0'
+recipe_type=cmake
+with_ninja="-G Ninja"

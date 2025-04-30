@@ -1,18 +1,13 @@
-# wget
-LibIDN2
-LibPSL
 # ls
 LibCap
 
 GCC [gcc]
 MPC [gcc]
+Zstd [gcc]
 Flex [gcc]
-Zstd
+
 LLVM [clang]
 LibICU4C [clang]
 LibFFI [clang]
 
 BuildCache | CCache [cache]
-
-Meson
-Ninja

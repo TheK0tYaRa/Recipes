@@ -1,0 +1,23 @@
+# Recipe for version 15.3.0 by TheK0tYaRa < thek0tyara.alod123@gmail.com >, on Wed 30 Apr 2025 03:20:20 AM EEST
+# Recipe (MakeRecipe) for GLSLang by Nuc1eoN, on Sun 13 Feb 2022 06:47:19 AM CET
+compile_version=017-GIT
+url="https://github.com/KhronosGroup/glslang/archive/refs/tags/15.3.0.tar.gz"
+file_size=4023163
+file_md5=fd77b2aa1b1f42d8c0a43502f305e153
+file="glslang-15.3.0.tar.gz"
+dir='glslang-15.3.0'
+recipe_type=cmake
+
+cmake_options=(
+  -D CMAKE_BUILD_TYPE=Release
+  -D BUILD_SHARED_LIBS=ON
+
+  -D ENABLE_SPIRV=ON
+  -D ALLOW_EXTERNAL_SPIRV_TOOLS=ON
+)
+with_ninja="-G Ninja"
+with_test="-D GLSLANG_TESTS=ON"
+
+environment=(
+  CXXFLAGS+=" -ffat-lto-objects"
+)
