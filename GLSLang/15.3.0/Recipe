@@ -22,6 +22,6 @@ environment=(
   CXXFLAGS+=" -ffat-lto-objects"
 )
 pre_link() {
-  rm -rf $target/lib # because it's EMPTY
-  ln -s lib64 $target/lib
+  #rm -rf $target/lib # because it's EMPTY
+  mv $target/lib64/* $target/lib/
 }
