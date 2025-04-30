@@ -21,3 +21,7 @@ with_test="-D GLSLANG_TESTS=ON"
 environment=(
   CXXFLAGS+=" -ffat-lto-objects"
 )
+pre_link() {
+  rm -rf $target/lib # because it's EMPTY
+  ln -s lib64 $target/lib
+}

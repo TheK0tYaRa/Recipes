@@ -16,9 +16,8 @@ BuildCache | CCache [cache]
 
 CMake >= 4.0.1
 Ninja [ninja]
-Git
 
-SPIRV-Tools >= 2025.1 #[spirv]
+SPIRV-Tools >= 2025.1
 
 #SPIRV-Headers
 #SPIRV-Tools
